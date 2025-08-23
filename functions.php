@@ -1,5 +1,6 @@
 <?php
-function fundraiser_enqueue_scripts() {
+function fundraiser_enqueue_scripts()
+{
     // CSS
     wp_enqueue_style('fundraiser-google-fonts', 'https://fonts.googleapis.com/css?family=Mansalva|Roboto&display=swap');
     wp_enqueue_style('fundraiser-icomoon', get_template_directory_uri() . '/fonts/icomoon/style.css');
@@ -37,17 +38,29 @@ register_nav_menus(array(
 
 add_menu_page('Fundraiser Options', 'Fundraiser by Norts', 'manage_options', 'fundraiser-options', 'fundraiser_options_page');
 
-function fundraiser_options_page() {
-    ?>
+function fundraiser_options_page()
+{
+?>
     <form method="post" action="options.php">
         <?php settings_fields('fundraiser_settings'); ?>
         <?php do_settings_sections('fundraiser_settings'); ?>
         <input type="text" name="fundraiser_hero_button" value="<?php echo get_option('fundraiser_hero_button'); ?>">
         <?php submit_button(); ?>
     </form>
-    <?php
+<?php
 }
 
-add_filter( 'excerpt_length', function(){
-	return 20;
-} );
+add_filter('excerpt_length', function () {
+    return 20;
+});
+
+function mon_theme_setup() {
+    add_theme_support('custom-logo', array(
+        'height'      => 100, // hauteur max du logo
+        'width'       => 300, // largeur max du logo
+        'flex-height' => true,
+        'flex-width'  => true,
+    ));
+}
+add_action('after_setup_theme', 'mon_theme_setup');
+

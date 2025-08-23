@@ -7,3 +7,9 @@ Version: 1.0
 License: GPL v2 or later
 Text Domain: fundraiser
 */
+
+
+.site-logo img {
+ max-width: 5rem !important;
+ max-height: 5rem !important;
+}

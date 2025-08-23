@@ -177,7 +177,6 @@
                 <div class="event-29191 mb-5">
                     <a href="#" class="d-block mb-3"><img src="<?php echo get_template_directory_uri(); ?>/images/img_2.jpg" alt="Image" class="img-fluid rounded"></a>
                     <div class="px-3 d-flex">
-
                         <div class="bg-primary p-3 d-inline-block text-center rounded mr-4 date">
                             <span class="text-white h3 m-0 d-block">22</span>
                             <span class="text-white small">Oct 2019</span>
@@ -190,7 +189,6 @@
                             </div>
                             <h3><a href="single.html">Ratione Delectus Assumenda Rem Modi Quaerat Laborum</a></h3>
                         </div>
-
                     </div>
                 </div>
             </div>
