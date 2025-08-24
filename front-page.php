@@ -148,7 +148,7 @@
 <div class="site-section">
     <div class="container">
         <div class="heading-20219 mb-5">
-            <h2 class="title text-cursive">Latest Event</h2>
+            <h2 class="title text-cursive">Nos Récentes Causes</h2>
         </div>
 
         <div class="row">

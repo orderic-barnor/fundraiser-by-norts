@@ -23,11 +23,15 @@
                     </div>
                     <div class="col-md-4 ml-auto">
                         <h2 class="footer-heading mb-4">Plan de site</h2>
-                        <ul class="list-unstyled">
-                            <li><a href="#">A Propos De Nous</a></li>
-                            <li><a href="#">Témoinages </a></li>
-                            <li><a href="#">Nous Contacter</a></li>
-                        </ul>
+                        <?php
+                        $args_sec = array(
+                            'theme_location'  => 'footer',
+                            'container'       => false,
+                            'menu_class'      => 'site-menu main-menu js-clone-nav pl-0 d-none d-lg-block mb-0',
+                        );
+
+                        wp_nav_menu($args_sec);
+                        ?>
                     </div>
 
                 </div>

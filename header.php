@@ -22,17 +22,20 @@
             <div class="site-mobile-menu-body"></div>
         </div>
 
-
-
-
-
         <div class="bg-primary py-3 top-bar shadow d-none d-md-block">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 text-md-left pl-0">
-                        <a href="#" class=" pr-3 pl-0">Accueil</a>
-                        <a href="#" class="p-3">Évènements</a>
-                        <a href="#" class="p-3">Devenir Volontaire</a>
+                        <?php
+                        $args_sec = array(
+                            'theme_location'  => 'secondary',
+                            'container'       => "nav",
+                            'container_class' => 'site-navigation text-left ml-auto',
+                            'menu_class'      => 'site-menu main-menu js-clone-nav pl-0 d-none d-lg-block mb-0',
+                        );
+
+                        wp_nav_menu($args_sec);
+                        ?>
                     </div>
                     <div class="col-md-6 text-md-right">
                         <a href="#" class="p-3"><span class="icon-twitter"></span></a>
