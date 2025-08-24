@@ -1,6 +1,5 @@
 <?php
-function fundraiser_enqueue_scripts()
-{
+function fundraiser_enqueue_scripts() {
     // CSS
     wp_enqueue_style('fundraiser-google-fonts', 'https://fonts.googleapis.com/css?family=Mansalva|Roboto&display=swap');
     wp_enqueue_style('fundraiser-icomoon', get_template_directory_uri() . '/fonts/icomoon/style.css');
@@ -32,9 +31,9 @@ add_action('wp_enqueue_scripts', 'fundraiser_enqueue_scripts');
 // to manage "image mis en avant"
 add_theme_support('post-thumbnails');
 
-register_nav_menus(array(
-    'primary' => __('Primary Menu', 'fundraiser'),
-));
+require_once "inc/menus-functions.php";
+
+
 
 add_menu_page('Fundraiser Options', 'Fundraiser by Norts', 'manage_options', 'fundraiser-options', 'fundraiser_options_page');
 
@@ -54,13 +53,42 @@ add_filter('excerpt_length', function () {
     return 20;
 });
 
+// Configure my theme after setup
 function mon_theme_setup() {
+    // for logo
     add_theme_support('custom-logo', array(
-        'height'      => 100, // hauteur max du logo
-        'width'       => 300, // largeur max du logo
+        'height'      => 300, 
+        'width'       => 300,
         'flex-height' => true,
         'flex-width'  => true,
     ));
 }
 add_action('after_setup_theme', 'mon_theme_setup');
 
+// function fundraiser_customize_register($wp_customize) {
+
+//     $template = basename( get_page_template() );
+
+//     var_dump(is_page_template('page-about.php'));
+
+
+
+
+
+
+//     $wp_customize->add_section('fundraiser_hero', array(
+//         'title' => __('Hero Section', 'fundraiser'),
+//         'priority' => 30,
+//     ));
+
+//     $wp_customize->add_setting('fundraiser_hero_title', array(
+//         'default' => 'Join The Movement To end Child Poverty',
+//     ));
+
+//     $wp_customize->add_control('fundraiser_hero_title', array(
+//         'label' => __('Hero Title', 'fundraiser'),
+//         'section' => 'fundraiser_hero',
+//         'type' => 'text',
+//     ));
+// }
+// add_action('customize_register', 'fundraiser_customize_register');

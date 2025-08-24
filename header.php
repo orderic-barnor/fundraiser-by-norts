@@ -42,11 +42,8 @@
             </div>
         </div>
         <header class="site-navbar site-navbar-target bg-secondary shadow" role="banner">
-
             <div class="container">
                 <div class="row align-items-center position-relative">
-
-
                     <div class="site-logo">
                         <?php if (has_custom_logo()) : ?>
                             <?php the_custom_logo(); ?>
@@ -59,21 +56,18 @@
                         <?php endif; ?>
                     </div>
 
+                    <?php
+                    $args = array(
+                        'theme_location'  => 'primary',
+                        'container'       => "nav",
+                        'container_class' => 'site-navigation text-left ml-auto',
+                        'menu_class'      => 'site-menu main-menu js-clone-nav ml-auto d-none d-lg-block',
+                    );
 
-                    <nav class="site-navigation text-left ml-auto " role="navigation">
-                        <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-                            <li class="active"><a href="index.html" class="nav-link">Accueil</a></li>
-                            <li><a href="about.html" class="nav-link">A Propos</a></li>
-                            <li><a href="causes.html" class="nav-link">Nos Causes</a></li>
-                            <li><a href="blog.html" class="nav-link">Actualités</a></li>
-                            <li><a href="events.html" class="nav-link">Évènements</a></li>
-                            <li><a href="contact.html" class="nav-link">Nous Contacter</a></li>
-                        </ul>
-                    </nav>
-
+                    wp_nav_menu($args);
+                    ?>
 
                     <div class="ml-auto toggle-button d-inline-block d-lg-none"><a href="#" class="site-menu-toggle py-5 js-menu-toggle text-white"><span class="icon-menu h3 text-white"></span></a></div>
-
                 </div>
             </div>
 

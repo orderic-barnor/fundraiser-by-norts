@@ -1,5 +1,6 @@
 <?php
-/* Template Name: À propos */
+/* Template Name: À propos (Fundraiser by Norts) */
+
 get_header();
 ?>
 
