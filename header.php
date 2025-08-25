@@ -37,9 +37,9 @@
                         wp_nav_menu($args_sec);
                         ?>
                     </div>
-                    <div class="col-md-6 text-md-right">
-                        <a href="#" class="p-3"><span class="icon-twitter"></span></a>
-                        <a href="#" class="p-3"><span class="icon-facebook"></span></a>
+                    <div class="col-md-6 text-md-right d-flex justify-content-end align-items-center">
+                        <a href="#" class="px-3"><span class="icon-twitter"></span></a>
+                        <a href="#" class="px-3"><span class="icon-facebook"></span></a>
                     </div>
                 </div>
             </div>
