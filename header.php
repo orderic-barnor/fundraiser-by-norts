@@ -22,7 +22,7 @@
             <div class="site-mobile-menu-body"></div>
         </div>
 
-        <div class="bg-primary py-3 top-bar shadow d-none d-md-block">
+        <div class="site-navbar bg-primary p-0 top-bar shadow d-none d-md-block">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 text-md-left pl-0">
@@ -31,7 +31,7 @@
                             'theme_location'  => 'secondary',
                             'container'       => "nav",
                             'container_class' => 'site-navigation text-left ml-auto',
-                            'menu_class'      => 'site-menu main-menu js-clone-nav pl-0 d-none d-lg-block mb-0',
+                            'menu_class'      => 'site-menu main-menu js-clone-nav pl-0 d-none d-lg-flex mb-0',
                         );
 
                         wp_nav_menu($args_sec);
