@@ -16,7 +16,7 @@ get_header();
 <div class="site-section">
       <div class="container">
         <div class="heading-20219 mb-5">
-          <h2 class="title text-cursive">Latest Blog</h2>
+          <h2 class="title text-cursive">Restés informés</h2>
         </div>
 
         <div class="row">
