@@ -25,6 +25,11 @@ function fundraiser_enqueue_scripts() {
     wp_enqueue_script('fundraiser-easing', get_template_directory_uri() . '/js/jquery.easing.1.3.js', array('jquery'), null, true);
     wp_enqueue_script('fundraiser-aos', get_template_directory_uri() . '/js/aos.js', array('jquery'), null, true);
     wp_enqueue_script('fundraiser-main', get_template_directory_uri() . '/js/main.js', array('jquery'), null, true);
+
+    wp_enqueue_script('infinite-scroll', get_template_directory_uri() . '/js/infinite-scroll.js', array('jquery'), null, true);
+    wp_localize_script('infinite-scroll', 'ajaxurl', array(
+        'url' => admin_url('admin-ajax.php')
+    ));
 }
 add_action('wp_enqueue_scripts', 'fundraiser_enqueue_scripts');
 
@@ -35,7 +40,7 @@ require_once "inc/menus-functions.php";
 
 
 
-add_menu_page('Fundraiser Options', 'Fundraiser by Norts', 'manage_options', 'fundraiser-options', 'fundraiser_options_page');
+add_menu_page('Fundraiser Options', 'Fundraiser by Norts', 'manage_options', 'fundraiser-options', 'fundraiser_options_page', '', 21);
 
 function fundraiser_options_page()
 {
@@ -92,3 +97,44 @@ add_action('after_setup_theme', 'mon_theme_setup');
 //     ));
 // }
 // add_action('customize_register', 'fundraiser_customize_register');
+
+function fundraiser_register_cpt() {
+     $labels = array(
+        'name' => 'Événements', // __('Events')
+        'all_items' => 'Tous les événements',  // affiché dans le sous menu
+        'singular_name' => 'Événement', // __('Event')
+        'add_new_item' => 'Ajouter un nouvel événement', // __('Add new event')
+        'edit_item' => "Modifier l'événement", // __('Update the event')
+        'menu_name' => 'Évenements',
+    );
+
+    register_post_type('event', array(
+        'labels' => $labels,
+        'public' => true,
+        'has_archive' => true,
+        'menu_position' => 22, 
+        'supports' => array('title', 'editor', 'show_in_rest', 'author', 'excerpt', 'comments','thumbnail','revisions', 'page-attributes'),
+        'taxonomies'    => array('post_tag'),
+    ));
+}
+add_action('init', 'fundraiser_register_cpt');
+
+function load_more_posts() {
+    $paged = $_POST['page'];
+
+    $query = new WP_Query(array(
+        'post_type' => 'event',
+        'paged' => $paged,
+    ));
+
+    if ($query->have_posts()) :
+        while ($query->have_posts()) : $query->the_post(); ?>
+            <?php get_template_part('template-parts/event', 'event'); ?>
+        <?php endwhile;
+    endif;
+    wp_reset_postdata();
+
+    die();
+}
+add_action('wp_ajax_load_more_posts', 'load_more_posts');
+add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
