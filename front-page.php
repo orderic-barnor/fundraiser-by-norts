@@ -1,20 +1,40 @@
 <?php get_header(); ?>
 
 <!-- Hero section -->
+<?php
+$title = get_field('slide_1_title');
+$subtitle = get_field('slide_1_subtitle');
+$button_text = get_field('slide_1_button_text');
+$button_link = get_field('slide_1_button_link');
+?>
 <div class="owl-carousel-wrapper">
-    <div class="box-92819">
-        <!-- <h1 class="text-white mb-3"><?php // bloginfo('description'); 
-                                            ?></h1> -->
-        <h1 class="text-white mb-3">Rejoignez le mouvement pour un nouvel avenir en Afrique</h1>
-        <p><a href="#" class="btn btn-primary py-3 px-4 rounded-0">Faites un don</a></p>
-    </div>
+    <?php if (isset($subtitle) || isset($button_text) || isset($button_link)): ?>
+        <div class="box-92819">
+            <?php if ($title): ?>
+                <h1 class="text-white mb-3"><?php echo $title; ?></h1>
+            <?php endif; ?>
+            <?php if ($subtitle): ?>
+                <h1 class="text-white mb-3"><?php echo $subtitle; ?></h1>
+            <?php endif; ?>
+            <?php if ($button_text): ?>
+                <p><a href="<?php echo $button_link ?: "#"; ?>" class="btn btn-primary py-3 px-4 rounded-0"><?php echo $button_text; ?></a></p>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
 
     <div class="owl-carousel owl-1 ">
-        <div class="ftco-cover-1 overlay" style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/hero_1.jpg');"></div>
-        <div class="ftco-cover-1 overlay" style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/hero_2.jpg');"></div>
-        <div class="ftco-cover-1 overlay" style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/hero_3.jpg');"></div>
+        <?php for ($i = 1; $i <= 3; $i++) : ?>
+            <?php $image = get_field('slide_' . $i . '_image'); ?>
+
+            <?php if ($image): ?>
+                <div class="ftco-cover-1 overlay" style="background-image: url('<?php echo esc_url($image); ?>')"></div>
+            <?php endif; ?>
+        <?php endfor; ?>
     </div>
+
 </div>
+
+
 
 <!-- Section secteurs d'interventions -->
 <div class="container">
