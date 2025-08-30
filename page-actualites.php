@@ -14,152 +14,38 @@ get_header();
 </div>
 
 <div class="site-section">
-      <div class="container">
-        <div class="heading-20219 mb-5">
-          <h2 class="title text-cursive">Restés informés</h2>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6">
-            <div class="event-29191 mb-5">
-              <a href="#" class="d-block mb-3"><img src="<?php echo get_template_directory_uri(); ?>/images/img_1.jpg" alt="Image" class="img-fluid rounded"></a>
-              <div class="px-3 d-flex">
-
-                <div class="bg-primary p-3 d-inline-block text-center rounded mr-4 date">
-                  <span class="text-white h3 m-0 d-block">22</span>
-                  <span class="text-white small">Oct 2019</span>
-                </div>
-
-                <div>
-                  <div class="mb-3">
-                    <span class="mr-3"> <span class="icon-bookmark mr-2 text-muted"></span><a href="#">Cause</a>, <a href="#">Event</a></span>
-                    <span> <span class="icon-person mr-2 text-muted"></span>James Smith</span>
-                  </div>
-                  <h3><a href="#">Ratione Delectus Assumenda Rem Modi Quaerat Laborum</a></h3>
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="event-29191 mb-5">
-              <a href="#" class="d-block mb-3"><img src="<?php echo get_template_directory_uri(); ?>/images/img_2.jpg" alt="Image" class="img-fluid rounded"></a>
-              <div class="px-3 d-flex">
-
-                <div class="bg-primary p-3 d-inline-block text-center rounded mr-4 date">
-                  <span class="text-white h3 m-0 d-block">22</span>
-                  <span class="text-white small">Oct 2019</span>
-                </div>
-
-                <div>
-                  <div class="mb-3">
-                    <span class="mr-3"> <span class="icon-bookmark mr-2 text-muted"></span><a href="#">Cause</a>, <a href="#">Event</a></span>
-                    <span> <span class="icon-person mr-2 text-muted"></span>James Smith</span>
-                  </div>
-                  <h3><a href="#">Ratione Delectus Assumenda Rem Modi Quaerat Laborum</a></h3>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="event-29191 mb-5">
-              <a href="#" class="d-block mb-3"><img src="<?php echo get_template_directory_uri(); ?>/images/img_1.jpg" alt="Image" class="img-fluid rounded"></a>
-              <div class="px-3 d-flex">
-
-                <div class="bg-primary p-3 d-inline-block text-center rounded mr-4 date">
-                  <span class="text-white h3 m-0 d-block">22</span>
-                  <span class="text-white small">Oct 2019</span>
-                </div>
-
-                <div>
-                  <div class="mb-3">
-                    <span class="mr-3"> <span class="icon-bookmark mr-2 text-muted"></span><a href="#">Cause</a>, <a href="#">Event</a></span>
-                    <span> <span class="icon-person mr-2 text-muted"></span>James Smith</span>
-                  </div>
-                  <h3><a href="#">Ratione Delectus Assumenda Rem Modi Quaerat Laborum</a></h3>
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="event-29191 mb-5">
-              <a href="#" class="d-block mb-3"><img src="<?php echo get_template_directory_uri(); ?>/images/img_2.jpg" alt="Image" class="img-fluid rounded"></a>
-              <div class="px-3 d-flex">
-
-                <div class="bg-primary p-3 d-inline-block text-center rounded mr-4 date">
-                  <span class="text-white h3 m-0 d-block">22</span>
-                  <span class="text-white small">Oct 2019</span>
-                </div>
-
-                <div>
-                  <div class="mb-3">
-                    <span class="mr-3"> <span class="icon-bookmark mr-2 text-muted"></span><a href="#">Cause</a>, <a href="#">Event</a></span>
-                    <span> <span class="icon-person mr-2 text-muted"></span>James Smith</span>
-                  </div>
-                  <h3><a href="#">Ratione Delectus Assumenda Rem Modi Quaerat Laborum</a></h3>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="event-29191 mb-5">
-              <a href="#" class="d-block mb-3"><img src="<?php echo get_template_directory_uri(); ?>/images/img_1.jpg" alt="Image" class="img-fluid rounded"></a>
-              <div class="px-3 d-flex">
-
-                <div class="bg-primary p-3 d-inline-block text-center rounded mr-4 date">
-                  <span class="text-white h3 m-0 d-block">22</span>
-                  <span class="text-white small">Oct 2019</span>
-                </div>
-
-                <div>
-                  <div class="mb-3">
-                    <span class="mr-3"> <span class="icon-bookmark mr-2 text-muted"></span><a href="#">Cause</a>, <a href="#">Event</a></span>
-                    <span> <span class="icon-person mr-2 text-muted"></span>James Smith</span>
-                  </div>
-                  <h3><a href="#">Ratione Delectus Assumenda Rem Modi Quaerat Laborum</a></h3>
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="event-29191 mb-5">
-              <a href="#" class="d-block mb-3"><img src="<?php echo get_template_directory_uri(); ?>/images/img_2.jpg" alt="Image" class="img-fluid rounded"></a>
-              <div class="px-3 d-flex">
-
-                <div class="bg-primary p-3 d-inline-block text-center rounded mr-4 date">
-                  <span class="text-white h3 m-0 d-block">22</span>
-                  <span class="text-white small">Oct 2019</span>
-                </div>
-
-                <div>
-                  <div class="mb-3">
-                    <span class="mr-3"> <span class="icon-bookmark mr-2 text-muted"></span><a href="#">Cause</a>, <a href="#">Event</a></span>
-                    <span> <span class="icon-person mr-2 text-muted"></span>James Smith</span>
-                  </div>
-                  <h3><a href="#">Ratione Delectus Assumenda Rem Modi Quaerat Laborum</a></h3>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-12 text-center">
-            <span class="p-3">1</span>
-            <a href="#" class="p-3">2</a>
-            <a href="#" class="p-3">3</a>
-            <a href="#" class="p-3">4</a>
-          </div>
-
-        </div>
-      </div>
+  <div class="container">
+    <div class="heading-20219 mb-5">
+      <h2 class="title text-cursive">Restés informés</h2>
     </div>
+
+    <div class="row">
+      <?php
+      $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+      $args = array(
+        'paged'    => $paged,
+        'post_type' => 'post'
+      );
+
+      $the_query = new WP_Query($args);
+
+      $iterable_expression = [];
+      ?>
+      <?php if ($the_query->have_posts()) : ?>
+        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+          <?php get_template_part('template-parts/topic', 'post'); ?>
+        <?php endwhile; ?>
+
+        <div class="d-flex justify-content-center w-100">
+          <button id="load-more" class="btn btn-primary py-3 px-4 rounded-0" data-page="1">Charger plus</button>
+        </div>
+      <?php else : ?>
+        <p>Aucun article trouvé.</p>
+      <?php endif; ?>
+    </div>
+  </div>
+</div>
 
 
 <?php
