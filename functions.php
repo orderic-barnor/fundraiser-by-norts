@@ -1,5 +1,6 @@
 <?php
-function fundraiser_enqueue_scripts() {
+function fundraiser_enqueue_scripts()
+{
     // CSS
     wp_enqueue_style('fundraiser-google-fonts', 'https://fonts.googleapis.com/css?family=Mansalva|Roboto&display=swap');
     wp_enqueue_style('fundraiser-icomoon', get_template_directory_uri() . '/fonts/icomoon/style.css');
@@ -51,7 +52,7 @@ function fundraiser_options_page()
         <input type="text" name="fundraiser_hero_button" value="<?php echo get_option('fundraiser_hero_button'); ?>">
         <?php submit_button(); ?>
     </form>
-<?php
+    <?php
 }
 
 add_filter('excerpt_length', function () {
@@ -59,10 +60,11 @@ add_filter('excerpt_length', function () {
 });
 
 // Configure my theme after setup
-function mon_theme_setup() {
+function mon_theme_setup()
+{
     // for logo
     add_theme_support('custom-logo', array(
-        'height'      => 300, 
+        'height'      => 300,
         'width'       => 300,
         'flex-height' => true,
         'flex-width'  => true,
@@ -98,8 +100,9 @@ add_action('after_setup_theme', 'mon_theme_setup');
 // }
 // add_action('customize_register', 'fundraiser_customize_register');
 
-function fundraiser_register_cpt() {
-     $labels = array(
+function fundraiser_register_cpt()
+{
+    $labels = array(
         'name' => 'Événements', // __('Events')
         'all_items' => 'Tous les événements',  // affiché dans le sous menu
         'singular_name' => 'Événement', // __('Event')
@@ -112,14 +115,31 @@ function fundraiser_register_cpt() {
         'labels' => $labels,
         'public' => true,
         'has_archive' => true,
-        'menu_position' => 22, 
-        'supports' => array('title', 'editor', 'show_in_rest', 'author', 'excerpt', 'comments','thumbnail','revisions', 'page-attributes'),
+        'menu_position' => 22,
+        'supports' => array('title', 'editor', 'show_in_rest', 'author', 'excerpt', 'comments', 'thumbnail', 'revisions', 'page-attributes'),
         'taxonomies'    => array('post_tag'),
+    ));
+
+    $teammate_labels = array(
+        'name' => 'Equipier', // __('Events')
+        'all_items' => 'Tous les équipiers',  // affiché dans le sous menu
+        'singular_name' => 'Équipier', // __('Teammate')
+        'add_new_item' => 'Ajouter un nouvel équipier', // __('Add new teammate')
+        'edit_item' => "Modifier l'équipier", // __('Update the teammate')
+        'menu_name' => 'Equipe',
+    );
+
+    register_post_type('teammate', array(
+        'labels' => $teammate_labels,
+        'public' => true,
+        'has_archive' => true,
+        'menu_position' => 22,
+        'supports' => array('title', 'editor', 'show_in_rest', 'author', 'excerpt', 'comments', 'thumbnail', 'revisions', 'page-attributes'),
     ));
 }
 add_action('init', 'fundraiser_register_cpt');
 
-function load_more_posts() {
+function load_more_posts(){
     $paged = $_POST['page'];
 
     $query = new WP_Query(array(
@@ -138,3 +158,70 @@ function load_more_posts() {
 }
 add_action('wp_ajax_load_more_posts', 'load_more_posts');
 add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
+
+
+
+// function update_donation_form_id($form_id)
+// {
+// var_dump(get_current_user_id());
+// wp_update_post(array(
+//     'ID' => $form_id,
+//     'post_author' =>  get_current_user_id()
+// ));
+
+// return $form_id;
+
+//      $current_user_id = get_current_user_id();
+//     if ($current_user_id) {
+//         $form_data['post_author'] = $current_user_id;
+//     }
+//     return $form_data;
+// }
+// add_action('give_pre_insert_form', 'update_donation_form_id');
+
+/**
+ * Assigne l'auteur courant aux forms GiveWP créés sans auteur (post_author = 0).
+ * S'exécute après la sauvegarde (save_post) et évite les boucles infinies.
+ */
+add_action('save_post', 'my_assign_give_form_author_on_save', 10, 3);
+function my_assign_give_form_author_on_save($post_id, $post, $update)
+{
+
+    // protections basiques
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if (wp_is_post_revision($post_id)) return;
+    if (! isset($post->post_type) || $post->post_type !== 'give_forms') return; // cible GiveWP
+
+    // si l'auteur est déjà défini, on sort
+    if ((int) $post->post_author !== 0) return;
+
+    // récupère l'utilisateur connecté (peut être 0 si pas connecté)
+    $current_user_id = get_current_user_id();
+
+    // fallback : si personne de connecté, définir un auteur par défaut (ex: admin 1)
+    if ($current_user_id <= 0) {
+        $default = (int) get_option('default_give_form_author', 1); // tu peux changer 1
+        // sécurité : vérifie que l'ID existe
+        if (get_userdata($default)) {
+            $current_user_id = $default;
+        } else {
+            return; // rien à faire si pas d'auteur valide
+        }
+    }
+
+    // évite boucle: retire l'action avant wp_update_post
+    remove_action('save_post', 'my_assign_give_form_author_on_save', 10);
+
+    wp_update_post(array(
+        'ID' => $post_id,
+        'post_author' => $current_user_id,
+    ));
+
+    // ré-ajoute l'action
+    add_action('save_post', 'my_assign_give_form_author_on_save', 10, 3);
+}
+
+add_action('save_post', function ($post_id, $post, $update) {
+    if ($post->post_type !== 'give_forms') return;
+    error_log("SAVE_POST give_forms id={$post_id} author={$post->post_author} current_user=" . get_current_user_id());
+}, 1, 3);

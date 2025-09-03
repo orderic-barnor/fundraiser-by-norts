@@ -28,22 +28,19 @@ $tags = get_the_terms(get_the_ID(), 'post_tag');
 
             <div>
                 <div class="mb-2">
-                    <?php if ($tags) { ?>
-                        <span class="mr-3">
-                            <span class="icon-bookmark mr-2 text-muted"></span>
-
-                            <?php
-                            foreach ($tags as $tag) {
-                                echo "<span class='mr-2'>" . esc_html($tag->name) . '</span>';
-                            } ?>
-                        </span>
-                    <?php } ?>
-
-                    <span>
-                        <span class="icon-person mr-2 text-muted"></span><?php the_author() ?>
-                    </span>
+                    <div class="mb-3">
+                    <?php if (get_field('event_start_time', $post_id) && get_field('event_end_time', $post_id)) : ?>
+                        <span class="mr-3"><span class="icon-clock-o mr-2 text-muted"></span><?php echo get_field('event_start_time', $post_id); ?> &mdash; <?php echo get_field('event_end_time', $post_id); ?></span>
+                    <?php endif; ?>
+                    <?php if (get_field('event_location', $post_id)) : ?>
+                        <span> <span class="icon-room mr-2 text-muted"></span><?php echo get_field('event_location', $post_id); ?></span>
+                    <?php endif; ?>
+                </div>
                 </div>
                 <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+            </div>
+            <div>
+                
             </div>
 
         </div>

@@ -1,26 +1,28 @@
-<div class="site-section bg-primary">
-    <div class="container" style="background-color: #026002;">
-        <div class="d-md-flex cta-20101 align-self-center p-4">
-            <div class="">
-                <h2 class="text-cursive text-white">Vous pouvez nous accompagner dans nos actions.</h2>
+<?php if (get_field("newsletter_text_descriptif") && get_field("newsletter_button_text") && get_field("newsletter_button_link")) : ?>
+    <div class="site-section bg-primary">
+        <div class="container" style="background-color: #026002;">
+            <div class="d-md-flex cta-20101 align-self-center p-4">
+                <div class="">
+                    <h2 class="text-cursive text-white"><?php echo get_field("newsletter_text_descriptif") ?></h2>
+                </div>
+                <div class="ml-auto"><a href="<?php echo get_field("newsletter_button_link") || "#"; ?>" class="btn bg-white text-primary"><?php echo get_field("newsletter_button_text"); ?></a></div>
             </div>
-            <div class="ml-auto"><a href="#" class="btn bg-white text-primary">Faites un don</a></div>
         </div>
     </div>
-</div>
+<?php endif; ?>
 
 <footer class="site-footer bg-white">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <div class="row">
-                    <div class="col-md-7">
-                        <h2 class="footer-heading mb-4">A Propos de Nous</h2>
-                        <p>
-                            Nous œuvrons pour l’autonomisation des femmes, l’insertion des jeunes et la valorisation du patrimoine culturel africain, tout en protégeant l’environnement et en promouvant la santé et le bien-être des populations. Des actions concrètes pour un impact durable sur les communautés.
-                        </p>
+                    <?php if (get_field("smart_about_title") && get_field("smart_about_short_description")) : ?>
+                        <div class="col-md-7">
+                            <h2 class="footer-heading mb-4"><?php echo get_field("smart_about_title") ?></h2>
+                            <p><?php echo get_field("smart_about_short_description") ?></p>
+                        </div>
+                    <?php endif; ?>
 
-                    </div>
                     <div class="col-md-4 ml-auto">
                         <h2 class="footer-heading mb-4">Plan de site</h2>
                         <?php
@@ -33,7 +35,6 @@
                         wp_nav_menu($args_sec);
                         ?>
                     </div>
-
                 </div>
             </div>
             <div class="col-md-4 ml-auto">
@@ -47,15 +48,25 @@
                                 <button class="btn btn-primary text-white" type="button" id="button-addon2">Souscrire</button>
                             </div>
                         </div>
+                    </form>
                 </div>
 
 
-                <h2 class="footer-heading mb-4">Suivez nous</h2>
-                <a href="#about-section" class="smoothscroll pl-0 pr-3"><span class="icon-facebook"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-                </form>
+                <?php if (get_field("share_facebook") || get_field("share_twitter") || get_field("share_instagram") || get_field("share_linkedin")) : ?>
+                    <h2 class="footer-heading mb-4">Suivez nous</h2>
+                    <?php if (get_field("share_facebook")) : ?>
+                        <a href="#about-section" class="smoothscroll pl-0 pr-3"><span class="icon-facebook"></span></a>
+                    <?php endif; ?>
+                    <?php if (get_field("share_twitter")) : ?>
+                        <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                    <?php endif; ?>
+                    <?php if (get_field("share_instagram")) : ?>
+                        <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                    <?php endif; ?>
+                    <?php if (get_field("share_linkedin")) : ?>
+                        <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+                    <?php endif; ?>
+                <?php endif; ?>
             </div>
         </div>
         <div class="row pt-5 mt-5 text-center">
