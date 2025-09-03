@@ -2,6 +2,10 @@
 /* Template Name: À propos (Fundraiser by Norts) */
 
 get_header();
+
+var_dump(get_field("smart_about_title"));
+var_dump(get_field("smart_about_short_description"));
+
 ?>
 
 <div class="owl-carousel-wrapper">
