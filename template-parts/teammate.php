@@ -8,7 +8,7 @@ if (get_field("teammate_role")) : ?>
             <?php if (has_post_thumbnail()) : ?>
                 <?php the_post_thumbnail('full', ['class' => 'img-fluid']); ?>
             <?php else : ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/person.png" alt="Image" class="img-fluid default-thumbnail">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/person.png" alt="Image" class="img-fluid">
             <?php endif; ?>
         </a>
         <div class="post-entry-1-contents">
