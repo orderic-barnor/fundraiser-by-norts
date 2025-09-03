@@ -190,7 +190,7 @@ for ($i = 1; $i <= 4; $i++) {
 
 
 ?>
-<div class="bg-image overlay site-section my-5" style="<?php echo $block_container_css; ?>">
+<div class="bg-image overlay site-section mt-5" style="<?php echo $block_container_css; ?>">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-12">
