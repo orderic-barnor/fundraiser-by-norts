@@ -3,7 +3,7 @@
         <div class="container" style="background-color: #026002;">
             <div class="d-md-flex cta-20101 align-self-center p-4">
                 <div class="">
-                    <h2 class="text-cursive text-white"><?php echo get_field("newsletter_text_descriptif") ?></h2>
+                    <h2 class="text-cursive text-white">azerty<?php echo get_field("newsletter_text_descriptif") ?></h2>
                 </div>
                 <div class="ml-auto"><a href="<?php echo get_field("newsletter_button_link") || "#"; ?>" class="btn bg-white text-primary"><?php echo get_field("newsletter_button_text"); ?></a></div>
             </div>
