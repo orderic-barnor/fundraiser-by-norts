@@ -21,6 +21,10 @@
                             <h2 class="footer-heading mb-4"><?php echo get_field("smart_about_title") ?></h2>
                             <p><?php echo get_field("smart_about_short_description") ?></p>
                         </div>
+                    <?php else : ?><div class="col-md-7">
+                            <h2 class="footer-heading mb-4">A Propos de Nous</h2>
+                            <>Nous œuvrons pour l’autonomisation des femmes, l’insertion des jeunes et la valorisation du patrimoine culturel africain, tout en protégeant l’environnement et en promouvant la santé et le bien-être des populations. Des actions concrètes pour un impact durable sur les communautés.<?php echo get_field("smart_about_short_description"); ?></p>
+                        </div>
                     <?php endif; ?>
 
                     <div class="col-md-4 ml-auto">
