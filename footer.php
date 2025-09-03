@@ -1,4 +1,4 @@
-<?php if (get_field("newsletter_text_descriptif") && get_field("newsletter_button_text") && get_field("newsletter_button_link")) : ?>
+<?php if (get_field("newsletter_text_descriptif") && get_field("newsletter_button_text")) : ?>
     <div class="site-section bg-primary">
         <div class="container" style="background-color: #026002;">
             <div class="d-md-flex cta-20101 align-self-center p-4">
