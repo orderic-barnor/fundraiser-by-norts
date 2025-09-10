@@ -38,8 +38,7 @@ add_action('wp_enqueue_scripts', 'fundraiser_enqueue_scripts');
 add_theme_support('post-thumbnails');
 
 require_once "inc/menus-functions.php";
-
-
+require_once "admin-interface.php";
 
 add_menu_page('Fundraiser Options', 'Fundraiser by Norts', 'manage_options', 'fundraiser-options', 'fundraiser_options_page', '', 21);
 
@@ -110,7 +109,6 @@ function fundraiser_register_cpt()
         'edit_item' => "Modifier l'événement", // __('Update the event')
         'menu_name' => 'Évenements',
     );
-
     register_post_type('event', array(
         'labels' => $labels,
         'public' => true,
@@ -128,7 +126,6 @@ function fundraiser_register_cpt()
         'edit_item' => "Modifier l'équipier", // __('Update the teammate')
         'menu_name' => 'Equipe',
     );
-
     register_post_type('teammate', array(
         'labels' => $teammate_labels,
         'public' => true,
@@ -139,7 +136,8 @@ function fundraiser_register_cpt()
 }
 add_action('init', 'fundraiser_register_cpt');
 
-function load_more_posts(){
+function load_more_posts()
+{
     $paged = $_POST['page'];
 
     $query = new WP_Query(array(
@@ -225,3 +223,69 @@ add_action('save_post', function ($post_id, $post, $update) {
     if ($post->post_type !== 'give_forms') return;
     error_log("SAVE_POST give_forms id={$post_id} author={$post->post_author} current_user=" . get_current_user_id());
 }, 1, 3);
+
+
+// to manage comments
+function my_theme_display_comments($comments, $depth = 1, $max_depth = 3)
+{
+    foreach ($comments as $comment) {
+        ?>
+        <li class="comment">
+            <div class="vcard bio">
+                <img src="<?php echo get_avatar_url($comment, array(40)); ?>" alt="">
+            </div>
+            <div class="comment-body">
+                <h3><?php echo $comment->comment_author; ?></h3>
+                <div class="meta"><?php echo wp_date('d M Y à H:i', strtotime($comment->comment_date)); ?></div>
+                <div class="comment-content">
+                    <?php echo apply_filters('comment_text', $comment->comment_content); ?>
+                </div>
+
+                <div class="comment-reply">
+                    <?php
+                    echo get_comment_reply_link(array(
+                        'reply_text' => 'Répondre',
+                        'depth'      => $depth,
+                        'max_depth'  => $max_depth,
+                    ), $comment->comment_ID, $comment->comment_post_ID);
+                    ?>
+                </div>
+            </div>
+
+            <?php
+            $children = get_comments(array(
+                'parent'    => $comment->comment_ID,
+                'post_id'   => $comment->comment_post_ID,
+                'status'    => 'approve',
+                'orderby'   => 'comment_date_gmt',
+                'order'     => 'ASC',
+            ));
+
+            if (!empty($children) && $depth < $max_depth) { ?>
+                <ul class="children">
+                    <?php
+                    my_theme_display_comments($children, $depth + 1, $max_depth);
+                    ?>
+                </ul>
+            <?php } ?>
+        </li>
+        <?php 
+    }
+}
+
+
+function enqueue_comment_reply_script()
+{
+    if (is_singular() && comments_open() && get_option('thread_comments')) {
+        wp_enqueue_script('comment-reply');
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_comment_reply_script');
+
+
+// add_action('pre_comment_on_post', function() {
+//     echo '<pre>';
+//     var_dump($_POST);
+//     echo '</pre>';
+//     exit;
+// });

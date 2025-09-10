@@ -2625,3 +2625,11 @@ h5,
   object-fit: cover;
   width: 100%;
 }
+
+.comment-reply a {
+    padding: 5px 10px;
+    background: #e6e6e6;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 14px;
+}

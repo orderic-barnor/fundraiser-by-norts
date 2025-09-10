@@ -16,31 +16,8 @@ get_header();
 <div class="site-section">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-8 mb-5">
-                <form action="#" method="post">
-                    <div class="form-group row">
-                        <div class="col-md-6 mb-4 mb-lg-0">
-                            <input type="text" class="form-control" placeholder="Prénom">
-                        </div>
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Nom de famille">
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-md-12">
-                            <input type="text" class="form-control" placeholder="Email">
-                        </div>
-                    </div>
-
-                    
-                    <div class="form-group row justify-content-center">
-                        <div class="col-md-6">
-                            <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5 rounded-0"
-                                value="Envoyer">
-                        </div>
-                    </div>
-                </form>
+            <div class="col-md-8 mb-5">
+                <?php echo do_shortcode('[contact-form-7 id="c3cedd4" title="Nous rejoindre"]'); ?>
             </div>
         </div>
     </div>
