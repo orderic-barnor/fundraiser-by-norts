@@ -151,7 +151,6 @@ $tags = get_the_tags();
         </div> -->
 
         <?php if (!empty($categories)) : ?>
-
           <div class="sidebar-box">
             <div class="categories">
               <h3>Categories</h3>
