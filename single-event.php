@@ -40,7 +40,7 @@ $excerpt = get_the_excerpt();
 </div>
 
 <div class="event-container container ">
-    <div class="event-content">
+    <div class="event-content py-5">
         <?php the_content(); ?>
     </div>
 </div>
