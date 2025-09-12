@@ -45,37 +45,26 @@ jQuery(document).ready(function($){
     });
 });
 
-jQuery(document).ready(function($){
+jQuery(document).ready(function($) {
+    $('#save_params').on('click', function(e) {
+        e.preventDefault();
 
-    var blocksData = []; // tableau des blocs de la page
+        // Récupérer les valeurs
+        let data = {
+            action: 'save_general_params',
+            facebook_lnk: $('#facebook_lnk').val(),
+            tiktok_lnk: $('#tiktok_lnk').val(),
+            _ajax_nonce: fundraiser_norts_ajax.nonce // sécurité (tu devras localiser ce nonce côté PHP)
+        };
 
-    // Ajouter un bloc
-    $('#add_block_btn').on('click', function(){
-        var selectedBlock = $('#add_block_select').val();
-        if(!selectedBlock) return;
-
-        // Ajouter un nouveau bloc avec des valeurs par défaut
-        blocksData.push({
-            type: selectedBlock,
-            title: '',      // valeurs par défaut
-            image: null,
-            color: '#ffffff'
+        // Appel AJAX
+        $.post(fundraiser_norts_ajax.ajax_url, data, function(response) {
+            if (response.success) {
+                alert(response.data.message || 'Paramètres enregistrés ✅');
+            } else {
+                alert(response.data.message || 'Erreur lors de l’enregistrement ❌');
+            }
         });
-
-        renderBlocks(); // fonction pour afficher tous les blocs
     });
-
-    function renderBlocks(){
-        var container = $('#blocks_container');
-        container.empty();
-        blocksData.forEach(function(block, index){
-            var html = '<div class="block" data-index="'+index+'">'+
-                       '<strong>'+block.type+'</strong> '+
-                       '<button class="edit">Edit</button> '+
-                       '<button class="delete">Delete</button>'+
-                       '</div>';
-            container.append(html);
-        });
-    }
-
 });
+

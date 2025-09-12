@@ -38,8 +38,16 @@
                         ?>
                     </div>
                     <div class="col-md-6 text-md-right d-flex justify-content-end align-items-center">
-                        <a href="#" class="px-3"><span class="icon-twitter"></span></a>
-                        <a href="#" class="px-3"><span class="icon-facebook"></span></a>
+                        <?php if (get_option('ong_facebook_lnk')) : ?>
+                            <a target="_blank" href="<?php echo get_option('ong_facebook_lnk'); ?>" class="px-3">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+                        <?php endif; ?>
+                        <?php if (get_option("ong_tiktok_lnk")) : ?>
+                            <a target="_blank" href="<?php echo get_option("ong_tiktok_lnk"); ?>" class="px-3">
+                                <i class="fa-brands fa-tiktok"></i>
+                            </a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

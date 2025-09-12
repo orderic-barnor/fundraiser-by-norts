@@ -14,6 +14,8 @@ function fundraiser_enqueue_scripts()
     wp_enqueue_style('fundraiser-main', get_template_directory_uri() . '/css/style.css');
     wp_enqueue_style('fundraiser-style', get_stylesheet_uri());
 
+    wp_enqueue_style('fontawesome-style', get_stylesheet_uri() . "/inc/fontawesome/css/all.min.css");
+
     // JS
     wp_enqueue_script('jquery');
     wp_enqueue_script('fundraiser-popper', get_template_directory_uri() . '/js/popper.min.js', array('jquery'), null, true);
@@ -27,12 +29,37 @@ function fundraiser_enqueue_scripts()
     wp_enqueue_script('fundraiser-aos', get_template_directory_uri() . '/js/aos.js', array('jquery'), null, true);
     wp_enqueue_script('fundraiser-main', get_template_directory_uri() . '/js/main.js', array('jquery'), null, true);
 
+    wp_enqueue_script('fontawesome-main', get_template_directory_uri() . '/inc/fontawesome/js/all.min.js', array('jquery'), null, true);
+
     wp_enqueue_script('infinite-scroll', get_template_directory_uri() . '/js/infinite-scroll.js', array('jquery'), null, true);
     wp_localize_script('infinite-scroll', 'ajaxurl', array(
         'url' => admin_url('admin-ajax.php')
     ));
+
+    // Enregistre ton script JS
+    wp_enqueue_script('fundraiser-script', get_template_directory_uri() . '/js/admin.js', ['jquery'], null, true);
+
+    wp_localize_script('fundraiser-script', 'fundraiser_norts_ajax', [
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce'    => wp_create_nonce('save_general_params')
+    ]);
 }
 add_action('wp_enqueue_scripts', 'fundraiser_enqueue_scripts');
+
+add_action('admin_enqueue_scripts', 'fundraiser_enqueue_scripts');
+
+if (! function_exists('fa_custom_setup_kit') ) {
+  function fa_custom_setup_kit($kit_url = '') {
+    foreach ( [ 'wp_enqueue_scripts', 'admin_enqueue_scripts', 'login_enqueue_scripts' ] as $action ) {
+      add_action(
+        $action,
+        function () use ( $kit_url ) {
+          wp_enqueue_script( 'font-awesome-kit', $kit_url, [], null );
+        }
+      );
+    }
+  }
+}
 
 // to manage "image mis en avant"
 add_theme_support('post-thumbnails');
@@ -40,7 +67,7 @@ add_theme_support('post-thumbnails');
 require_once "inc/menus-functions.php";
 require_once "admin-interface.php";
 
-add_menu_page('Fundraiser Options', 'Fundraiser by Norts', 'manage_options', 'fundraiser-options', 'fundraiser_options_page', '', 21);
+// add_menu_page('Fundraiser Options', 'Fundraiser by Norts', 'manage_options', 'fundraiser-options', 'fundraiser_options_page', '', 21);
 
 function fundraiser_options_page()
 {
@@ -289,3 +316,14 @@ add_action('wp_enqueue_scripts', 'enqueue_comment_reply_script');
 //     echo '</pre>';
 //     exit;
 // });
+
+
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page([
+        'page_title' => 'Paramètres du site',
+        'menu_title' => 'Paramètres',
+        'menu_slug'  => 'theme-general-settings',
+        'capability' => 'edit_posts',
+        'redirect'   => false
+    ]);
+}

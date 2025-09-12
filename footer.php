@@ -55,14 +55,23 @@
                     </form>
                 </div>
 
-
-                <?php if (get_field("share_facebook") || get_field("share_twitter") || get_field("share_instagram") || get_field("share_linkedin")) : ?>
+<?php if (get_option('ong_facebook_lnk')) : ?>
+                            <a target="_blank" href="<?php echo get_option('ong_facebook_lnk'); ?>" class="px-3">
+                                
+                            </a>
+                        <?php endif; ?>
+                        <?php if (get_option("ong_tiktok_lnk")) : ?>
+                            <a target="_blank" href="<?php echo get_option("ong_tiktok_lnk"); ?>" class="px-3">
+                                
+                            </a>
+                        <?php endif; ?>
+                <?php if (get_option("ong_facebook_lnk") || get_option("ong_tiktok_lnk") || get_field("share_instagram") || get_field("share_linkedin")) : ?>
                     <h2 class="footer-heading mb-4">Suivez nous</h2>
-                    <?php if (get_field("share_facebook")) : ?>
-                        <a href="#about-section" class="smoothscroll pl-0 pr-3"><span class="icon-facebook"></span></a>
+                    <?php if (get_option("ong_facebook_lnk")) : ?>
+                        <a href="#about-section" class="smoothscroll pl-0 pr-3"><i class="fa-brands fa-facebook"></i></a>
                     <?php endif; ?>
-                    <?php if (get_field("share_twitter")) : ?>
-                        <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                    <?php if (get_option("ong_tiktok_lnk")) : ?>
+                        <a href="#" class="pl-3 pr-3"><i class="fa-brands fa-tiktok"></i></a>
                     <?php endif; ?>
                     <?php if (get_field("share_instagram")) : ?>
                         <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
