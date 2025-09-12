@@ -59,12 +59,11 @@
                     <?php if (get_option("ong_tiktok_lnk")) : ?>
                         <a href="#" class="pl-3 pr-3"><i class="fa-brands fa-tiktok"></i></a>
                     <?php endif; ?>
-
-                    <?php if (get_field("share_instagram")) : ?>
-                        <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                    <?php if (get_option("ong_instagram_lnk")) : ?>
+                        <a href="#about-section" class="smoothscroll pl-0 pr-3"><i class="fa-brands fa-instagram"></i></a>
                     <?php endif; ?>
-                    <?php if (get_field("share_linkedin")) : ?>
-                        <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+                    <?php if (get_option("ong_linkedin_lnk")) : ?>
+                        <a href="#" class="pl-3 pr-3"><i class="fa-brands fa-linkedin"></i></a>
                     <?php endif; ?>
                 <?php endif; ?>
             </div>

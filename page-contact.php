@@ -23,7 +23,9 @@ get_header();
             }
             ?>
             <div class="<?php echo $only_contact_form ? "col-md-8":"col-lg-12" ; ?> mb-5">
-                <?php echo do_shortcode('[contact-form-7 id="a42bbaa" title="Formulaire de contact"]'); ?>
+                <?php
+                $form_shortcode = get("contact_form_shortcode");
+                echo do_shortcode($form_shortcode); ?>
             </div>
             <?php if ($only_contact_form) : ?>
                 <div class="col-lg-4 ml-auto">
