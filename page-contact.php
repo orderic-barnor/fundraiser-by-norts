@@ -22,10 +22,11 @@ get_header();
                 $only_contact_form = true;
             }
             ?>
-            <div class="<?php echo $only_contact_form ? "col-md-8":"col-lg-12" ; ?> mb-5">
+            <div class="<?php echo $only_contact_form ? 'col-md-8' : 'col-md-12'; ?> mb-5">
                 <?php
-                $form_shortcode = get("contact_form_shortcode");
-                echo do_shortcode($form_shortcode); ?>
+                $form_shortcode = get_field("contact_form_shortcode");
+                echo do_shortcode($form_shortcode);
+                ?>
             </div>
             <?php if ($only_contact_form) : ?>
                 <div class="col-lg-4 ml-auto">
