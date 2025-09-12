@@ -135,8 +135,6 @@ get_header();
                         }
 
                         $tags = get_the_terms($id, "give_forms_tag");
-                var_dump($tags);
-
 
                         // GiveWP
                         $goal     = (float) $campaign_meta->$campaign_goal;
@@ -158,7 +156,7 @@ get_header();
                                 </a>
 
                                 <div class="px-3 pt-3 border-top-0 border border shadow-sm">
-                                    <?php if ($tags) : ?>
+                                    <?php if ($tags && !is_wp_error($tags)) : ?>
                                         <?php foreach ($tags as $tag) : ?>
                                             <span class="badge-success py-1 small px-2 rounded mb-3 d-inline-block" style="color: #fff !important;"><?php echo $tag->name; ?></span>
                                         <?php endforeach; ?>
