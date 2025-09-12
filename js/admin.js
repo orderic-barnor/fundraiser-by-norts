@@ -52,9 +52,11 @@ jQuery(document).ready(function($) {
         // Récupérer les valeurs
         let data = {
             action: 'save_general_params',
-            facebook_lnk: $('#facebook_lnk').val(),
-            tiktok_lnk: $('#tiktok_lnk').val(),
-            _ajax_nonce: fundraiser_norts_ajax.nonce // sécurité (tu devras localiser ce nonce côté PHP)
+            ong_facebook_lnk: $('#facebook_lnk').val(),
+            ong_tiktok_lnk: $('#tiktok_lnk').val(),
+            ong_about_title: $('#ong_about_title').val(),
+            ong_about_description: $('#ong_about_description').val(),
+            _ajax_nonce: fundraiser_norts_ajax.nonce
         };
 
         // Appel AJAX

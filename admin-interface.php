@@ -64,12 +64,15 @@ function render_page_builder()
             <h1 class="mb-4">Paramètres Généraux</h1>
 
             <form class="mb-4">
+                <h3 class="mt-3 mb-2">Footer</h3>
                 <div class="row">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="First name">
+                    <div class="col-lg-6 py-1">
+                        <input type="text" id="ong_about_title" value="<?php echo get_option("ong_about_title"); ?>" class="form-control" placeholder="Titre A Propos">
                     </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Last name">
+                </div>
+                 <div class="row">
+                    <div class="col-lg-6 py-1">
+                        <textarea id="ong_about_description" class="w-100"  placeholder="Description A Propos"><?php echo get_option("ong_about_description"); ?></textarea>
                     </div>
                 </div>
 
@@ -80,7 +83,7 @@ function render_page_builder()
                             <div class="input-group-prepend">
                                 <div class="input-group-text" style="color: #0866ff"><i class="fa-brands fa-facebook"></i></div>
                             </div>
-                            <input type="text" id="facebook_lnk" class="form-control" id="inlineFormInputGroupUsername" placeholder="Lien Facebook">
+                            <input type="text" id="facebook_lnk" value="<?php echo get_option("ong_facebook_lnk"); ?>" class="form-control" id="inlineFormInputGroupUsername" placeholder="Lien Facebook">
                         </div>
                     </div>
                 </div>
@@ -90,7 +93,7 @@ function render_page_builder()
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fa-brands fa-tiktok"></i></div>
                             </div>
-                            <input type="text" id="tiktok_lnk" class="form-control" id="inlineFormInputGroupUsername" placeholder="Lien Tiktok">
+                            <input type="text" id="tiktok_lnk" value="<?php echo get_option("ong_tiktok_lnk"); ?>" class="form-control" id="inlineFormInputGroupUsername" placeholder="Lien Tiktok">
                         </div>
                     </div>
                 </div>
@@ -111,8 +114,10 @@ add_action('wp_ajax_save_general_params', function () {
 
     // Liste des champs autorisés
     $fields = [
-        'facebook_lnk' => 'ong_facebook_lnk',
-        'tiktok_lnk'   => 'ong_tiktok_lnk',
+        'ong_facebook_lnk' => 'ong_facebook_lnk',
+        'ong_tiktok_lnk'   => 'ong_tiktok_lnk',
+        'ong_about_title' => 'ong_about_title',
+        'ong_about_description' => 'ong_about_description'
     ];
 
     foreach ($fields as $post_key => $option_key) {

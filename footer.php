@@ -16,14 +16,10 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="row">
-                    <?php if (get_field("smart_about_title") && get_field("smart_about_short_description")) : ?>
+                    <?php if (get_option("ong_about_title") && get_option("ong_about_description")) : ?>
                         <div class="col-md-7">
-                            <h2 class="footer-heading mb-4"><?php echo get_field("smart_about_title") ?></h2>
-                            <p><?php echo get_field("smart_about_short_description") ?></p>
-                        </div>
-                    <?php else : ?><div class="col-md-7">
-                            <h2 class="footer-heading mb-4">A Propos de Nous</h2>
-                            <p>Nous œuvrons pour l’autonomisation des femmes, l’insertion des jeunes et la valorisation du patrimoine culturel africain, tout en protégeant l’environnement et en promouvant la santé et le bien-être des populations. Des actions concrètes pour un impact durable sur les communautés.<?php echo get_field("smart_about_short_description"); ?></p>
+                            <h2 class="footer-heading mb-4"><?php echo get_option("ong_about_title") ?></h2>
+                            <p><?php echo get_option("ong_about_description") ?></p>
                         </div>
                     <?php endif; ?>
 
@@ -55,16 +51,6 @@
                     </form>
                 </div>
 
-<?php if (get_option('ong_facebook_lnk')) : ?>
-                            <a target="_blank" href="<?php echo get_option('ong_facebook_lnk'); ?>" class="px-3">
-                                
-                            </a>
-                        <?php endif; ?>
-                        <?php if (get_option("ong_tiktok_lnk")) : ?>
-                            <a target="_blank" href="<?php echo get_option("ong_tiktok_lnk"); ?>" class="px-3">
-                                
-                            </a>
-                        <?php endif; ?>
                 <?php if (get_option("ong_facebook_lnk") || get_option("ong_tiktok_lnk") || get_field("share_instagram") || get_field("share_linkedin")) : ?>
                     <h2 class="footer-heading mb-4">Suivez nous</h2>
                     <?php if (get_option("ong_facebook_lnk")) : ?>
@@ -73,6 +59,7 @@
                     <?php if (get_option("ong_tiktok_lnk")) : ?>
                         <a href="#" class="pl-3 pr-3"><i class="fa-brands fa-tiktok"></i></a>
                     <?php endif; ?>
+
                     <?php if (get_field("share_instagram")) : ?>
                         <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
                     <?php endif; ?>
