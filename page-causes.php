@@ -46,9 +46,6 @@ get_header();
 
 
                 $tags = get_the_terms($id, "give_forms_tag");
-
-
-
         ?>
                 <div class="row mb-5 align-items-st">
                     <div class="col-md-5">
@@ -138,6 +135,7 @@ get_header();
                         }
 
                         $tags = get_the_terms($id, "give_forms_tag");
+                var_dump($tags);
 
 
                         // GiveWP
