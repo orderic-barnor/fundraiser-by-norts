@@ -17,7 +17,7 @@ get_header();
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 mb-5">
-                <?php echo do_shortcode('[contact-form-7 id="c3cedd4" title="Nous rejoindre"]'); ?>
+                <?php echo do_shortcode(get_field("joinus_form_shortcode")); ?>
             </div>
         </div>
     </div>
