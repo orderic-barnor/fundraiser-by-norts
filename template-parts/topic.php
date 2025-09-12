@@ -9,13 +9,13 @@ $post_id = get_the_ID();
 
 $tags = get_the_terms(get_the_ID(), 'post_tag');
 ?>
-<div class="col-md-6">
+<div class="col-md-6 topic">
     <div class="event-29191 mb-5">
         <a href="<?php the_permalink(); ?>" class="d-block mb-3">
             <?php if (has_post_thumbnail()) : ?>
-                <?php the_post_thumbnail('full', ['class' => 'img-fluid']); ?>
+                <?php the_post_thumbnail('full', ['class' => 'custom-img']); ?>
             <?php else : ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/our-news.jpg" alt="Image" class="img-fluid default-thumbnail">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/our-news.jpg" alt="Image" class="custom-img default-thumbnail">
             <?php endif; ?>
         </a>
 
