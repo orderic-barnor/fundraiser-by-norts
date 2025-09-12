@@ -7,8 +7,8 @@ get_header();
 <div class="owl-carousel-wrapper">
   <div class="box-92819">
     <h1 class="text-white mb-3"><?php echo get_the_title(); ?></h1>
-    <?php if (get_field("joinus_page_description")) : ?>
-      <p class="lead text-white"><?php echo get_field("joinus_page_description")?></p>
+    <?php if (get_field("joinus_description")) : ?>
+      <p class="lead text-white"><?php echo get_field("joinus_description")?></p>
     <?php endif; ?>
   </div>
 
