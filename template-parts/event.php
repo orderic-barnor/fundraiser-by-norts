@@ -14,9 +14,9 @@ $tags = get_the_terms(get_the_ID(), 'post_tag');
     <div class="event-29191 mb-5">
         <a href="<?php the_permalink(); ?>" class="d-block mb-3">
             <?php if (has_post_thumbnail()) : ?>
-                <?php the_post_thumbnail('full', ['class' => 'img-fluid']); ?>
+                <?php the_post_thumbnail('full', ['class' => 'custom-img']); ?>
             <?php else : ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/our-events.jpg" alt="Image" style="max-width: 100%; height: 25rem;" class="img-fluid default-thumbnail">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/our-events.jpg" alt="Image" class="custom-img default-thumbnail">
             <?php endif; ?>
         </a>
         <div class="px-3 d-flex align-items-start">

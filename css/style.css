@@ -2672,3 +2672,7 @@ h5,
   opacity: .6 !important;
 }
 
+.event-img .custom-img {
+  max-width: 100%;
+  height: 25rem;
+}
