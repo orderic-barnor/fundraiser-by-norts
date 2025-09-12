@@ -11,7 +11,7 @@ $tags = get_the_terms(get_the_ID(), 'post_tag');
 
 ?>
 <div class="col-md-6">
-    <div class="event-29191 mb-5">
+    <div class="event-29191 event-img mb-5">
         <a href="<?php the_permalink(); ?>" class="d-block mb-3">
             <?php if (has_post_thumbnail()) : ?>
                 <?php the_post_thumbnail('full', ['class' => 'custom-img']); ?>
