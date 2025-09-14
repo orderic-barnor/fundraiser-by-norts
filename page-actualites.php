@@ -38,7 +38,7 @@ get_header();
         <?php endwhile; ?>
 
         <div class="d-flex justify-content-center w-100">
-          <button id="load-more" class="btn btn-primary py-3 px-4 rounded-0" data-page="1">Charger plus</button>
+          <button id="load-more" class="btn btn-primary py-3 px-4 rounded-0" data-page="1">Afficher plus</button>
         </div>
       <?php else : ?>
         <p>Aucun article trouvé.</p>
