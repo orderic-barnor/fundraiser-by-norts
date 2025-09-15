@@ -47,7 +47,7 @@ $team = new WP_Query($team_args);
           <h2 class="text-cursive">Notre Equipe</h2>
         </div>
       </div>
-      <div class="row align-items-stretch">
+      <div class="row justify-content-around">
         <?php while ($team->have_posts()) : $team->the_post(); ?>
           <?php setup_postdata($team); ?>
           <?php get_template_part('template-parts/teammate', 'teammate'); ?>
