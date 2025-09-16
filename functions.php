@@ -14,7 +14,7 @@ function fundraiser_enqueue_scripts()
     wp_enqueue_style('fundraiser-main', get_template_directory_uri() . '/css/style.css');
     wp_enqueue_style('fundraiser-style', get_stylesheet_uri());
 
-    wp_enqueue_style('fontawesome-style', get_stylesheet_uri() . "/inc/fontawesome/css/all.min.css");
+    wp_enqueue_style('fontawesome-style', get_template_directory_uri() . "/inc/fontawesome/css/all.min.css");
 
     // JS
     wp_enqueue_script('jquery');
@@ -35,6 +35,11 @@ function fundraiser_enqueue_scripts()
     wp_localize_script('infinite-scroll', 'ajaxurl', array(
         'url' => admin_url('admin-ajax.php')
     ));
+
+    // select2
+    wp_enqueue_style('select2-style', get_template_directory_uri() . "/inc/selectdeux/css/select2.min.css");
+    wp_enqueue_script('select2-script', get_template_directory_uri() . '/inc/selectdeux/js/select2.min.js', array('jquery'), null, true);
+
 
     // Enregistre ton script JS
     wp_enqueue_script('fundraiser-script', get_template_directory_uri() . '/js/admin.js', ['jquery'], null, true);
@@ -327,3 +332,33 @@ if( function_exists('acf_add_options_page') ) {
         'redirect'   => false
     ]);
 }
+
+
+function ong_enqueue_select2($hook) {
+    
+    wp_add_inline_script('select2-js', "
+      
+    ");
+}
+add_action('admin_enqueue_scripts', 'ong_enqueue_select2');
+
+add_action('wp_ajax_ong_search_posts', function() {
+    global $wpdb;
+    $term = sanitize_text_field($_GET['q'] ?? '');
+    $results = [];
+
+    $posts = get_posts([
+        'post_type'      => ['post', 'page'],
+        'posts_per_page' => 20,
+        's'              => $term
+    ]);
+
+    foreach ($posts as $p) {
+        $results[] = [
+            'id'   => $p->ID,
+            'text' => $p->post_title . ' (' . $p->post_type . ')'
+        ];
+    }
+
+    wp_send_json($results);
+});

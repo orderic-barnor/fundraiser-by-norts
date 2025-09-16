@@ -1,11 +1,15 @@
-<?php if (get_field("newsletter_text_descriptif") && get_field("newsletter_button_text")) : ?>
+<?php if (get_option("footer_cta_btn_description") && get_option("footer_cta_btn_label")) : ?>
     <div class="site-section bg-primary">
         <div class="container" style="background-color: #026002;">
             <div class="d-md-flex cta-20101 align-self-center p-4">
                 <div class="">
-                    <h2 class="text-cursive text-white"><?php echo get_field("newsletter_text_descriptif") ?></h2>
+                    <h2 class="text-cursive text-white"><?php echo get_option("footer_cta_btn_description") ?></h2>
                 </div>
-                <div class="ml-auto"><a href="<?php echo get_field("newsletter_button_link") ?? "#"; ?>" class="btn bg-white text-primary"><?php echo get_field("newsletter_button_text"); ?></a></div>
+                <?php
+                    $btn_link_id = get_option("footer_cta_btn_link");
+                    $post_link = get_permalink($btn_link_id) ?? "#";
+                ?>
+                <div class="ml-auto"><a href="<?php echo $post_link; ?>" class="btn bg-white text-primary"><?php echo get_option("footer_cta_btn_label"); ?></a></div>
             </div>
         </div>
     </div>
