@@ -70,7 +70,7 @@ $tags = get_the_tags();
             <?php endif; ?>
 
             <?php if (!empty($tags)) { ?>
-              Tags:
+              Etiquettes:
               <?php
               foreach ($tags as $key => $tag) {
                 // echo '<a href="' . $cat['link'] . '">' . $cat['name'] . '</a>';
