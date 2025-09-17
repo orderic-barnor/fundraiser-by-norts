@@ -23,9 +23,7 @@ $excerpt = get_the_excerpt();
             <span class="mx-2 text-primary">&bullet;</span>
             par <?php echo $author_display; ?>
           </span>
-          <?php if ($excerpt) : ?>
-            <h1 class="mb-4 text-cursive h1" data-aos="fade-up" data-aos-delay="100"><?php echo $excerpt; ?></h1>
-          <?php endif; ?>
+            <h1 class="mb-4 text-cursive h1" data-aos="fade-up" data-aos-delay="100"><?php echo get_the_title();; ?></h1>
         </div>
       </div>
     </div>
