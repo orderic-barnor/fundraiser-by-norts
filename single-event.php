@@ -49,11 +49,12 @@ $excerpt = get_the_excerpt();
     <div class="tag">
         <?php
         $event_tags = get_the_tags();
-        foreach ($event_tags as $key => $tag) {
+        if ($event_tags) {
+           foreach ($event_tags as $key => $tag) {
             echo '<a href="#">#' . $tag->name . '</a>';
+            }
         }
         ?>
-
     </div>
     <div class="share">
         <span>Share:</span>
