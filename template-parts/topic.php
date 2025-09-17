@@ -32,7 +32,7 @@ $tags = get_the_terms(get_the_ID(), 'post_tag');
                             <span class="icon-bookmark mr-2 text-muted"></span>
 
                             <?php
-                            $max = 3;
+                            $max = 2;
                             if (count($tags) < $max) {
                                 $max = count($tags);
                             }
