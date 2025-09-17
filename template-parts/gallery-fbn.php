@@ -21,7 +21,7 @@ if ($gallery_ids) {
                     <?php } ?>
                 </ul>
                 <?php foreach ($ids as $id) { ?>
-                    <a href="#_<?php echo $id; ?>" class="lightbox trans" id="img_<?php echo $id; ?>">
+                    <a href="#_<?php echo $id; ?>" class="lightbox trans py-4" id="img_<?php echo $id; ?>">
                         <?php echo wp_get_attachment_image($id, 'full'); ?>
                     </a>
                 <?php } ?>

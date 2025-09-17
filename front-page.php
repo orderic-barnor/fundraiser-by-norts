@@ -259,10 +259,9 @@ $events = new WP_Query($event_args);
 
             <div class="row">
                 <?php while ($events->have_posts()) : $events->the_post(); ?>
-                    <?php setup_postdata($event); ?>
                     <?php get_template_part('template-parts/event', 'event'); ?>
-                    <?php wp_reset_postdata(); ?>
                 <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
             </div>
         </div>
     </div>
