@@ -115,7 +115,7 @@ if ($campaigns->have_posts()) : ?>
                     // var_dump($avatar_url);
 
                     // GiveWP
-                    $goal     = (float) $campaign_meta->$campaign_goal;
+                    $goal     = (float) $campaign_meta->campaign_goal;
                     $donated  = (float) give_get_form_earnings_stats($id);
                     $formatted_goal = give_currency_filter(give_format_amount($goal));
                     // var_dump($formatted_goal);

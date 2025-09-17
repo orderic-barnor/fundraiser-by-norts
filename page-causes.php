@@ -35,7 +35,7 @@ get_header();
                 $excerpt  = get_the_excerpt($featured_campaign); // vide => falsey
                 $link     = get_permalink($id);
 
-                $goal     = (float) $featured_campaign_meta->$campaign_goal;
+                $goal     = (float) $featured_campaign_meta->campaign_goal;
                 $donated  = (float) give_get_form_earnings_stats($id);
                 $formated_goal = give_currency_filter(give_format_amount($goal));
                 $progress = $goal > 0 ? min(100, round(($donated / $goal) * 100)) : 0;
@@ -137,7 +137,7 @@ get_header();
                         $tags = get_the_terms($id, "give_forms_tag");
 
                         // GiveWP
-                        $goal     = (float) $campaign_meta->$campaign_goal;
+                        $goal     = (float) $campaign_meta->campaign_goal;
                         $donated  = (float) give_get_form_earnings_stats($id);
                         $formatted_goal = give_currency_filter(give_format_amount($goal));
 
