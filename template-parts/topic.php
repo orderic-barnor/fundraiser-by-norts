@@ -32,9 +32,16 @@ $tags = get_the_terms(get_the_ID(), 'post_tag');
                             <span class="icon-bookmark mr-2 text-muted"></span>
 
                             <?php
-                            foreach ($tags as $tag) {
+                            $max = 3;
+                            if (count($tags) < $max) {
+                                $max = count($tags);
+                            }
+
+                            for ($i=0; $i < $max; $i++) {
+                                $tag = $tags[$i];
                                 echo "<a href='#' class='mr-2'>" . esc_html($tag->name) . '</a>';
-                            } ?>
+                            }
+                            ?>
                         </span>
                     <?php } ?>
                     <span> <span class="icon-person mr-2 text-muted"></span><?php the_author(); ?></span>
