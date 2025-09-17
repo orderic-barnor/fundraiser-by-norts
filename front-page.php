@@ -35,7 +35,9 @@ $button_link = get_field('slide_1_button_link');
 </div>
 
 <?php 
-                echo do_shortcode(["[newsletter_form]"]);
+                echo do_shortcode("[newsletter_form]");
+
+
 ?>
 
 <!-- Section secteurs d'interventions -->
