@@ -27,7 +27,7 @@ $excerpt = get_the_excerpt();
                     <span class="d-block mb-3 text-white" data-aos="fade-up">
                         <span class="mx-1 text-primary"><?php echo get_the_date('d M Y'); ?></span>
                         <?php
-                        if (get_field('event_start_time', $post_id) && get_field('event_end_time', $post_id)) {
+                        if (get_field('event_start_time', $post->ID) && get_field('event_end_time', $post_id)) {
                             echo ' &#124; ' . '<span class="mx-1 text-primary">' . get_field('event_start_time', $post_id) . ' &mdash; ' . get_field('event_end_time', $post_id) . '</span>';
                         }
                         ?>
