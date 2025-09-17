@@ -34,12 +34,6 @@ $button_link = get_field('slide_1_button_link');
 
 </div>
 
-<?php 
-                echo do_shortcode("[newsletter_form]");
-
-
-?>
-
 <!-- Section secteurs d'interventions -->
 <div class="container">
     <div class="feature-29192-wrap d-md-flex" style="margin-top: -20px; position: relative; z-index: 2; height: 20rem;">

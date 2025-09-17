@@ -45,14 +45,15 @@
 
                 <div class="mb-5">
                     <h2 class="footer-heading mb-4">Suivez nos activités</h2>
-                    <form action="#" method="post" class="footer-suscribe-form">
+                    <?php echo do_shortcode('[newsletter_form form="1"]'); ?>
+                    <!-- <form action="#" method="post" class="footer-suscribe-form">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control rounded-0 border-secondary text-white bg-transparent" placeholder="Votre Email" aria-label="Votre Email" aria-describedby="button-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary text-white" type="button" id="button-addon2">Souscrire</button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
                 </div>
 
                 <?php if (get_option("ong_facebook_lnk") || get_option("ong_tiktok_lnk") || get_field("share_instagram") || get_field("share_linkedin")) : ?>
