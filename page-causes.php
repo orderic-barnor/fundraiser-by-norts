@@ -167,12 +167,12 @@ get_header();
                                         <div class="ml-auto"><strong class="text-primary"><?php echo $formatted_goal; ?></strong></div>
                                     </div>
 
-                                    <div class="py-4">
+                                    <!-- <div class="py-4">
                                         <div class="d-flex align-items-center">
-                                            <img src="<?php echo $avatar_url ?>" alt="Image" class="rounded-circle mr-3" width="50">
-                                            <div class=""><?php echo $author_name; ?></div>
+                                            <img src="<?php // echo $avatar_url ?>" alt="Image" class="rounded-circle mr-3" width="50">
+                                            <div class=""><?php // echo $author_name; ?></div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                             </div>
