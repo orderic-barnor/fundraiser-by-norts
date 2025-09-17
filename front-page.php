@@ -90,7 +90,8 @@ if ($campaigns->have_posts()) : ?>
                         <h2 class="title text-cursive">Les dernières causes</h2>
                     </div>
                 </div>
-                <div class="col-md-8">
+                <?php // TODO: Samad doit proposer quoi mettre là ?>
+                <div class="d-none col-md-8">
                     <p>Nos dernières causes à soutenir</p>
                 </div>
             </div>
@@ -152,10 +153,10 @@ if ($campaigns->have_posts()) : ?>
                                 </div>
 
                                 <div class="py-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="<?php echo $avatar_url ?>" alt="Image" class="rounded-circle mr-3" width="50">
-                                        <div class=""><?php echo $author_name; ?></div>
-                                    </div>
+                                    <!-- <div class="d-flex align-items-center">
+                                        <img src="<?php echo // $avatar_url ?>" alt="Image" class="rounded-circle mr-3" width="50">
+                                        <div class=""><?php echo // $author_name; ?></div>
+                                    </div> -->
                                 </div>
                             </div>
 

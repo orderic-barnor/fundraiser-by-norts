@@ -26,7 +26,7 @@ get_header();
             $results = $wpdb->get_results("SELECT * FROM $table_name WHERE form_id = " . $featured_campaign);
             $featured_campaign_meta = !empty($results) ? $results[0] : null;
 
-// TODO: penser a ajouter un parametre acf pour choisir la couleur qui gerera les tags et la progression 
+            // TODO: penser a ajouter un parametre acf pour choisir la couleur qui gerera les tags et la progression 
             if ($featured_campaign_meta) {
                 $image_url = $featured_campaign_meta->campaign_image ?? get_template_directory_uri() . "/images/default_cause.jpg";
                 $campaign_description = $featured_campaign_meta->short_desc ?? "";
@@ -79,12 +79,12 @@ get_header();
                                     <div class="ml-auto"><strong class="text-primary"><?php echo $formated_goal; ?></strong></div>
                                 </div>
 
-                                <div class="py-4">
+                                <!-- <div class="py-4">
                                     <div class="d-flex align-items-center">
-                                        <img src="<?php echo $avatar_url ?>" alt="Image" class="rounded-circle mr-3" width="50">
-                                        <div class=""><?php echo $author_name; ?></div>
+                                        <img src="<?php // echo $avatar_url ?>" alt="Image" class="rounded-circle mr-3" width="50">
+                                        <div class=""><?php // echo $author_name; ?></div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
                         </div>
