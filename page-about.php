@@ -80,7 +80,8 @@ if ($campaigns->have_posts()) : ?>
                         <h2 class="title text-cursive">Nos dernières causes</h2>
                     </div>
                 </div>
-                <div class="col-md-8">
+                <?php // TODO: Samad doit proposer quoi mettre là ?>
+                <div class="d-none col-md-8">
                     <p>Nos dernières causes à soutenir</p>
                 </div>
             </div>
