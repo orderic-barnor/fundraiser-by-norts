@@ -334,13 +334,7 @@ if( function_exists('acf_add_options_page') ) {
 }
 
 
-function ong_enqueue_select2($hook) {
-    
-    wp_add_inline_script('select2-js', "
-      
-    ");
-}
-add_action('admin_enqueue_scripts', 'ong_enqueue_select2');
+
 
 add_action('wp_ajax_ong_search_posts', function() {
     global $wpdb;
@@ -362,3 +356,60 @@ add_action('wp_ajax_ong_search_posts', function() {
 
     wp_send_json($results);
 });
+
+
+
+// Add metabox "Galerie"
+function fbn_add_gallery_metabox() {
+    add_meta_box(
+        'fbn_gallery_box',
+        'Galerie d’images',
+        'fnb_gallery_metabox_html',
+        ['post', 'page', 'event'],
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'fbn_add_gallery_metabox');
+
+function fnb_gallery_metabox_html($post) {
+    $gallery_ids = get_post_meta($post->ID, '_fbn_gallery_ids', true);
+    $gallery_ids = $gallery_ids ? explode(',', $gallery_ids) : [];
+    ?>
+    <div id="fbn-gallery-container">
+        <ul class="fbn-gallery-list d-flex">
+            <?php foreach ($gallery_ids as $id): ?>
+                <li class="col-2" data-id="<?php echo esc_attr($id); ?>">
+                    <?php echo wp_get_attachment_image($id, 'thumbnail'); ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <input type="hidden" name="fbn_gallery_ids" id="fbn_gallery_ids" value="<?php echo esc_attr(implode(',', $gallery_ids)); ?>">
+        <button type="button" class="button" id="fbn-add-gallery">Ajouter des images</button>
+    </div>
+    <style>
+        #fbn-gallery-container ul { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+    </style>
+    <?php
+}
+
+function fbn_save_gallery_metabox($post_id) {
+    if (isset($_POST['fbn_gallery_ids'])) {
+        update_post_meta($post_id, '_fbn_gallery_ids', sanitize_text_field($_POST['fbn_gallery_ids']));
+    }
+}
+add_action('save_post', 'fbn_save_gallery_metabox');
+
+
+function fbn_gallery_admin_js($hook) {
+    global $post;
+    if (in_array($hook, ['post.php', 'post-new.php'])) {
+        wp_enqueue_media();
+        ?>
+        <script>
+        
+        </script>
+        <?php
+    }
+}
+add_action('admin_footer', 'fbn_gallery_admin_js');

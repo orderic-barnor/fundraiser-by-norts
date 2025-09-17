@@ -98,3 +98,40 @@ jQuery(document).ready(function ($) {
         minimumInputLength: 2
     });
 });
+
+jQuery(document).ready(function ($) {
+    var frame;
+    $('#fbn-add-gallery').on('click', function (e) {
+        e.preventDefault();
+
+        if (frame) {
+            frame.open();
+            return;
+        }
+
+        frame = wp.media({
+            title: 'Sélectionner des images',
+            button: {
+                text: 'Utiliser ces images'
+            },
+            multiple: true
+        });
+
+        frame.on('select', function () {
+            var attachments = frame.state().get('selection').toJSON();
+            var ids = attachments.map(function (att) {
+                return att.id;
+            });
+            var preview = '';
+
+            ids.forEach(function (id) {
+                preview += '<li class="col-2" data-id="' + id + '"><img src="' + attachments.find(a => a.id === id).sizes.thumbnail.url + '"></li>';
+            });
+
+            $('#fbn-gallery-container ul').html(preview);
+            $('#fbn_gallery_ids').val(ids.join(','));
+        });
+
+        frame.open();
+    });
+});

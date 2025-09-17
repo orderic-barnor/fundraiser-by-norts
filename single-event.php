@@ -32,7 +32,7 @@ $excerpt = get_the_excerpt();
                         }
                         ?>
                     </span>
-                    
+
                 </div>
             </div>
         </div>
@@ -64,6 +64,7 @@ $excerpt = get_the_excerpt();
     </div>
 </div>
 <?php
+require_once "template-parts/gallery-fbn.php";
 
 // endwhile; endif;
 get_footer(); ?>
