@@ -17,7 +17,7 @@ $excerpt = get_the_excerpt();
   <div class="ftco-cover-1 overlay" style="background-image: url('<?php echo $image; ?>')">
     <div class="container">
       <div class="row align-items-center justify-content-center">
-        <div class="col-lg-6 text-center">
+        <div class="col-lg-9 text-center">
           <span class="d-block mb-3 text-white" data-aos="fade-up">
             <?php echo get_the_date('d M Y'); ?>
             <span class="mx-2 text-primary">&bullet;</span>
@@ -75,6 +75,10 @@ $tags = get_the_tags();
               foreach ($tags as $key => $tag) {
                 // echo '<a href="' . $cat['link'] . '">' . $cat['name'] . '</a>';
                 echo '<a href="#">' . $tag->name . '</a>';
+
+                if ($tag !== end($tags)) {
+                  echo ", ";
+                }
               }
               ?>
           </p>
