@@ -28,7 +28,7 @@ $tags = get_the_terms(get_the_ID(), 'post_tag');
             <div>
                 <div class="mb-2">
                     <?php if ($tags) { ?>
-                        <span class="mr-3">
+                        <div class="mr-3">
                             <span class="icon-bookmark mr-2 text-muted"></span>
 
                             <?php
@@ -42,9 +42,11 @@ $tags = get_the_terms(get_the_ID(), 'post_tag');
                                 echo "<a href='#' class='mr-2'>" . esc_html($tag->name) . '</a>';
                             }
                             ?>
-                        </span>
+                        </div>
                     <?php } ?>
-                    <span> <span class="icon-person mr-2 text-muted"></span><?php the_author(); ?></span>
+                    <div>
+                        <span class="icon-person mr-2 text-muted"></span><?php the_author(); ?>
+                    </div>
                 </div>
                 <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
             </div>
