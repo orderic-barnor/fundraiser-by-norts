@@ -20,7 +20,7 @@ get_header();
         <div class="col-md-6">
           <img src="<?php echo get_field("about_1_image"); ?>" alt="Image" class="img-fluid">
         </div>
-        <div class="col-md-5 ml-auto">
+        <div class="col-md-6">
           <h3 class="text-cursive mb-4"><?php echo get_field("about_1_title") ?></h3>
           <p><?php echo get_field("about_1_description") ?></p>
           <?php if (get_field("about_1_btn_text")) : ?>
