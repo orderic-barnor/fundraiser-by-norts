@@ -43,10 +43,9 @@
             </div>
             <div class="col-md-4 ml-auto">
 
-                <div class="mb-5">
+                <!-- <div class="mb-5">
                     <h2 class="footer-heading mb-4">Suivez nos activités</h2>
                     <?php // echo do_shortcode('[newsletter_form form="1"]'); ?>
-                    <?php echo do_shortcode('[fluentform id="3"]'); ?>
                     <form action="#" method="post" class="footer-suscribe-form">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control rounded-0 border-secondary text-white bg-transparent" placeholder="Votre Email" aria-label="Votre Email" aria-describedby="button-addon2">
@@ -55,7 +54,7 @@
                             </div>
                         </div>
                     </form>
-                </div>
+                </div> -->
 
                 <?php if (get_option("ong_facebook_lnk") || get_option("ong_tiktok_lnk") || get_field("share_instagram") || get_field("share_linkedin")) : ?>
                     <h2 class="footer-heading mb-4">Suivez nous</h2>
