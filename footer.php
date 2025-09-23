@@ -18,17 +18,17 @@
 <footer class="site-footer bg-white">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="row">
                     <?php if (get_option("ong_about_title") && get_option("ong_about_description")) : ?>
-                        <div class="col-md-7">
-                            <h2 class="footer-heading mb-4"><?php echo get_option("ong_about_title") ?></h2>
+                        <div class="col-md-7 mb-4 mb-md-0">
+                            <h2 class="footer-heading mb-2"><?php echo get_option("ong_about_title") ?></h2>
                             <p><?php echo get_option("ong_about_description") ?></p>
                         </div>
                     <?php endif; ?>
 
-                    <div class="col-md-4 ml-auto">
-                        <h2 class="footer-heading mb-4">Plan de site</h2>
+                    <div class="col-md-4 ml-auto  mb-4 mb-md-0">
+                        <h2 class="footer-heading mb-2">Plan de site</h2>
                         <?php
                         $args_sec = array(
                             'theme_location'  => 'footer',
@@ -57,7 +57,7 @@
                 </div> -->
 
                 <?php if (get_option("ong_facebook_lnk") || get_option("ong_tiktok_lnk") || get_field("share_instagram") || get_field("share_linkedin")) : ?>
-                    <h2 class="footer-heading mb-4">Suivez nous</h2>
+                    <h2 class="footer-heading mb-2">Suivez nous</h2>
                     <?php if (get_option("ong_facebook_lnk")) : ?>
                         <a href="#about-section" class="smoothscroll pl-0 pr-3"><i class="fa-brands fa-facebook"></i></a>
                     <?php endif; ?>
