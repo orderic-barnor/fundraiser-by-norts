@@ -33,7 +33,7 @@
                         $args_sec = array(
                             'theme_location'  => 'footer',
                             'container'       => false,
-                            'menu_class'      => 'site-menu main-menu js-clone-nav pl-0 d-none d-lg-block mb-0',
+                            'menu_class'      => 'site-menu main-menu js-clone-nav pl-0 d-block mb-0',
                         );
 
                         wp_nav_menu($args_sec);

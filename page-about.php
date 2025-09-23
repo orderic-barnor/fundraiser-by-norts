@@ -7,7 +7,7 @@ get_header();
 <div class="owl-carousel-wrapper">
   <div class="box-92819">
     <h1 class="text-white mb-3">A Propos de Nous<?php echo get_field("smart_about_title"); ?></h1>
-    <p class="lead text-white">Nous œuvrons pour l’autonomisation des femmes, l’insertion des jeunes et la valorisation du patrimoine culturel africain, tout en protégeant l’environnement et en promouvant la santé et le bien-être des populations. Des actions concrètes pour un impact durable sur les communautés.<?php echo get_field("smart_about_short_description"); ?></p>
+    <p class="lead text-white"><?php echo get_option("ong_about_description"); ?></p>
   </div>
 
   <div class="ftco-cover-1 overlay" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>');"></div>

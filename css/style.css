@@ -2353,8 +2353,14 @@ h5,
 
 .box-92819 h1 {
   font-weight: 900 !important;
-  font-size: 5rem;
+  font-size: 2rem;
   font-family: "Mansalva", cursive !important;
+}
+
+@media (min-width: 991.98px) {
+  .box-92819 h1 {
+    font-size: 5rem !important;
+  }
 }
 
 .text-cursive {
