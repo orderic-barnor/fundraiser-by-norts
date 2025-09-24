@@ -35,7 +35,7 @@ get_header();
                         <ul class="list-unstyled footer-link">
                             <?php if (get_field("contact_page_address")) : ?>
                                 <li class="d-block mb-3">
-                                    <span class="d-block text-muted small text-uppercase font-weight-bold">Addresse:</span>
+                                    <span class="d-block text-muted small text-uppercase font-weight-bold">Adresse:</span>
                                     <span><?php echo get_field("contact_page_address"); ?></span>
                                 </li>
                             <?php endif; ?>
