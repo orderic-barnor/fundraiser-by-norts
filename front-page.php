@@ -61,7 +61,7 @@ $button_link = get_field('slide_1_button_link');
             <a href="#" class="feature-29192 <?php echo $class[$i]; ?>" style="<?php echo $css_style; ?>">
                 <div class="text">
                     <span class="meta"><?php echo $title; ?></span>
-                    <h3 class="text-cursive text-white h1"><?php echo $subtitle; ?></h3>
+                    <h3 class=" text-white h1"><?php echo $subtitle; ?></h3>
                 </div>
             </a>
         <?php endfor; ?>
