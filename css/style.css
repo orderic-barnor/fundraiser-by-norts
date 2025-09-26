@@ -2545,6 +2545,18 @@ h5,
   position: relative;
 }
 
+.cause .cause-link:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    display: block;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.44);
+}
+.cause:hover .cause-link:before {
+    background: transparent;
+}
+
 .cause h3 {
   font-size: 26px !important;
 }
