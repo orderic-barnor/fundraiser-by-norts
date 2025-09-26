@@ -13,7 +13,7 @@ if (get_field("teammate_role")) : ?>
         </a>
         <div class="post-entry-1-contents">
             <span class="meta"><?php echo get_field("teammate_role", $post_id); ?></span>
-            <h2><?php echo get_field("teammate_name", $post_id) ?? the_title(); ?></h2>
+            <h2><?php echo the_title(); ?></h2>
             <?php if (get_field("teammate_short_description", $post_id)) : ?>
                 <p><?php echo get_field("teammate_short_description", $post_id); ?></p>
             <?php endif; ?>
