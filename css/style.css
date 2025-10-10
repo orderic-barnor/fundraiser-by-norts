@@ -2862,6 +2862,7 @@ ul.gallery-fbn li:hover {
     height: 100%;
     background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
     padding: 0 1.5rem;
 }
 

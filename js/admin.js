@@ -203,13 +203,13 @@ jQuery(document).ready(function ($) {
       let id = ids[0];
       $("#partner-form .file-preview").css(
         "background-image",
-        "url(" + attachments.find((a) => a.id === id).sizes.thumbnail.url + ")"
+        "url(" + attachments.find((a) => a.id === id).sizes.full.url + ")"
       );
       $("#partner-form .file-preview").removeClass("d-none");
       $("#partner_logo").data("id", id);
       $("#partner_logo").data(
         "src_url",
-        attachments.find((a) => a.id === id).sizes.thumbnail.url
+        attachments.find((a) => a.id === id).sizes.full.url
       );
     });
   });

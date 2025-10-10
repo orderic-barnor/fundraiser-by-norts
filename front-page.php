@@ -300,7 +300,9 @@ if (!empty($partners)) {
             <h2 class="title text-cursive"><?php echo "Nos partenaires"; ?></h2>
         </div>
 
-        <div class="owl-carousel">
+        <?php if (count($partners)>=5) : ?>
+
+        <div class="">
             <?php foreach ($partners as $key => $partner) {
             ?>
                 <div class="partner">
@@ -308,7 +310,19 @@ if (!empty($partners)) {
                 </div>
             <?php
             } ?>
-        </div>        
+        </div>
+        <?php else : ?>
+            <div class="row">
+                <?php foreach ($partners as $key => $partner) {
+                ?>
+                    <div class="col-2 align-content-center">
+                        <img class="img-fluid " src="<?php echo $partner['logo_url']; ?>" alt="">
+                    </div>
+                <?php
+                } ?>
+            </div>
+        <?php endif; ?>
+        
     </div>
 <?php
 } ?>
