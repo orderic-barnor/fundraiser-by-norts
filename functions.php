@@ -425,7 +425,8 @@ add_action('wp_ajax_save_partner', function () {
         'logo_url' => esc_url_raw($_POST['logo_url']),
     ];
 
-    $partners[] = $new_partner;
+    // $partners[] = $new_partner;
+    array_push($partners, $new_partner);
     update_option('fbn_ong_partners', $partners);
 
     wp_send_json_success(["success" => true, "saved" => $new_partner]);
