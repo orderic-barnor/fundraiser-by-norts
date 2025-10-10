@@ -416,7 +416,7 @@ add_action('save_post', 'fbn_save_gallery_metabox');
 
 // Save patner
 add_action('wp_ajax_save_partner', function () {
-    $partners = get_option('fbn_ong_partners', '[]');
+    $partners = get_option('fbn_ong_partners', []);
 
     $new_partner = [
         'id' => time(),
