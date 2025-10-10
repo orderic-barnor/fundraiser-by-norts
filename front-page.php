@@ -31,7 +31,6 @@ $button_link = get_field('slide_1_button_link');
             <?php endif; ?>
         <?php endfor; ?>
     </div>
-
 </div>
 
 <!-- Section secteurs d'interventions -->
@@ -89,7 +88,8 @@ if ($campaigns->have_posts()) : ?>
                         <h2 class="title text-cursive">Les dernières causes</h2>
                     </div>
                 </div>
-                <?php // TODO: Samad doit proposer quoi mettre là ?>
+                <?php // TODO: Samad doit proposer quoi mettre là 
+                ?>
                 <div class="d-none col-md-8">
                     <p>Nos dernières causes à soutenir</p>
                 </div>
@@ -153,8 +153,10 @@ if ($campaigns->have_posts()) : ?>
 
                                 <div class="py-4">
                                     <!-- <div class="d-flex align-items-center">
-                                        <img src="<?php // echo $avatar_url ?>" alt="Image" class="rounded-circle mr-3" width="50">
-                                        <div class=""><?php // echo $author_name; ?></div>
+                                        <img src="<?php // echo $avatar_url 
+                                                    ?>" alt="Image" class="rounded-circle mr-3" width="50">
+                                        <div class=""><?php // echo $author_name; 
+                                                        ?></div>
                                     </div> -->
                                 </div>
                             </div>
@@ -266,5 +268,49 @@ $events = new WP_Query($event_args);
         </div>
     </div>
 <?php endif; ?>
+
+<!-- nos partenaires -->
+<?php
+$partners = get_option('fbn_ong_partners', []);
+if (!empty($partners)) {
+?>
+    <script>
+        jQuery(document).ready(function($) {
+
+            $('.partners .owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: false,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 5
+                    }
+                }
+            });
+        });
+    </script>
+    <div class="container partners">
+        <div class="heading-20219 front-heading mb-5 pl-3">
+            <h2 class="title text-cursive"><?php echo "Nos partenaires"; ?></h2>
+        </div>
+
+        <div class="owl-carousel">
+            <?php foreach ($partners as $key => $partner) {
+            ?>
+                <div class="partner">
+                    <img src="<?php echo $partner['logo_url']; ?>" alt="">
+                </div>
+            <?php
+            } ?>
+        </div>        
+    </div>
+<?php
+} ?>
 
 <?php get_footer(); ?>

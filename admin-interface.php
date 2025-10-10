@@ -16,7 +16,8 @@ function render_page_builder()
     $pages = get_pages(); // toutes les pages
 ?>
 
-    <div class="d-flex flex-column flex-md-row px-3 py-5" style="min-height: 90vh;">
+    <div class="d-flex flex-column flex-md-row px-3 py-5">
+
         <!-- Sidebar (collapsible on mobile) -->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark sidebar p-3">
             <a class="navbar-brand d-md-none" href="#">Fundraiser by Norts</a>
@@ -27,14 +28,15 @@ function render_page_builder()
 
             <div class="collapse navbar-collapse h-100" id="sidebarMenu">
                 <div class="nav flex-column nav-pills p-3 h-100" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Paramètres Généraux</a>
+                    <a class="nav-link active" id="v-pills-global-tab" data-toggle="pill" href="#v-pills-global" role="tab" aria-controls="v-pills-global" aria-selected="true">Paramètres Généraux</a>
+                    <a class="nav-link" id="v-pills-homepage-tab" data-toggle="pill" href="#v-pills-homepage" role="tab" aria-controls="v-pills-homepage" aria-selected="true">Page d'accueil</a>
                     <!-- <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a> -->
                 </div>
             </div>
         </nav>
 
-        <div class="tab-content flex-grow-1 p-5" id="v-pills-tabContent">
-            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+        <div class="tab-content flex-grow-1 p-1 p-md-5" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-global" role="tabpanel" aria-labelledby="v-pills-global-tab">
                 <?php
                 /* ?>
                     <h1>Page Builder</h1>
@@ -127,14 +129,97 @@ function render_page_builder()
                 <button id="save_params" class="button button-primary">Enregistrer</button>
 
             </div>
-            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+            <div class="tab-pane fade" id="v-pills-homepage" role="tabpanel" aria-labelledby="v-pills-homepage-tab">
+                <h1 class   ="mb-4">Page d'accueil</h1>
+                <div id="home_page_form" class="mb-4">
+                    <div>
+                        <h3 class="mt-3 mb-2">Nos partenaires</h3>
+                        <!-- Formulaire d'ajout / modification -->
+                        <div id="partner-form" class="row mx-0 p-3 align-content-center border">
+                            <div class="col-12 col-md-3 mb-2 mb-md-0 d-flex">
+                                <div class="file-preview d-none"></div>
+                                <input type="file" class="admin-custom-file-input" id="partner_logo" name="partner_logo" accept="image/*" placeholder="Choisir Logo">
+                            </div>
+                            <div class="col-12 col-md-6 mb-2 mb-md-0">
+                                <input name="partner_name" id="partner_name" type="text" class="form-control" placeholder="Nom du partenaire">
+                            </div>
+
+                            <div class="col-12 col-md-3 mb-2 mb-md-0 d-flex flex-column flex-md-row justify-content-center align-items-center">
+                                <div class="col px-1">
+                                    <button class="w-100 mb-1 mb-md-0" type="button" id="partner-form-add">Enregistrer</button>
+                                </div>
+                                <div class="col px-1">
+                                    <button class="w-100" type="button" id="partner-form-reset">Annuler</button>
+                                </div>
+                            </div>
+                            <input type="hidden" name="partner_id" id="partner_id" value="">
+                        </div>
+
+                        <!-- Liste des partenaires -->
+                        <table id="partners-list" class="d-none d-md-table">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Logo</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Les partenaires seront injectés ici via JS -->
+                            </tbody>
+                        </table>
+
+                        <div id="partners-list-mobile" class="d-md-none">
+                            <h3 class="mt-3 mb-2">Liste des partenaires</h3>
+                            <div id="partners-list-mobile-container" class="row">
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="row ">
+                        <div class="col-12 col-md-3 mb-4">
+                            <div class="card">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+
+                                    <input type="file" class="admin-custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+ -->
+
+
+
+
+
+
+
+                    <!-- <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                        </div>
+                        <div class="custom-file">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+                    </div> -->
+                </div>
+
+
+                </form>
+
+                <!-- <button id="save_frontpage_params" class="button button-primary">Enregistrer</button> -->
+            </div>
             <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
             <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
         </div>
 
     </div>
 
-    <script src="<?php echo get_template_directory_uri(); ?>/js/admin.js"></script>
 <?php
 }
 

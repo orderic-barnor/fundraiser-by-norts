@@ -39,9 +39,15 @@ function fundraiser_enqueue_scripts()
     // select2
     wp_enqueue_style('select2-style', get_template_directory_uri() . "/inc/selectdeux/css/select2.min.css");
     wp_enqueue_script('select2-script', get_template_directory_uri() . '/inc/selectdeux/js/select2.min.js', array('jquery'), null, true);
+}
+add_action('wp_enqueue_scripts', 'fundraiser_enqueue_scripts');
 
+function fundraiser_enqueue_admin_scripts()
+{
+    fundraiser_enqueue_scripts();
 
-    // Enregistre ton script JS
+    wp_enqueue_media();
+
     wp_enqueue_script('fundraiser-script', get_template_directory_uri() . '/js/admin.js', ['jquery'], null, true);
 
     wp_localize_script('fundraiser-script', 'fundraiser_norts_ajax', [
@@ -49,21 +55,21 @@ function fundraiser_enqueue_scripts()
         'nonce'    => wp_create_nonce('save_general_params')
     ]);
 }
-add_action('wp_enqueue_scripts', 'fundraiser_enqueue_scripts');
 
-add_action('admin_enqueue_scripts', 'fundraiser_enqueue_scripts');
+add_action('admin_enqueue_scripts', 'fundraiser_enqueue_admin_scripts');
 
-if (! function_exists('fa_custom_setup_kit') ) {
-  function fa_custom_setup_kit($kit_url = '') {
-    foreach ( [ 'wp_enqueue_scripts', 'admin_enqueue_scripts', 'login_enqueue_scripts' ] as $action ) {
-      add_action(
-        $action,
-        function () use ( $kit_url ) {
-          wp_enqueue_script( 'font-awesome-kit', $kit_url, [], null );
+if (! function_exists('fa_custom_setup_kit')) {
+    function fa_custom_setup_kit($kit_url = '')
+    {
+        foreach (['wp_enqueue_scripts', 'admin_enqueue_scripts', 'login_enqueue_scripts'] as $action) {
+            add_action(
+                $action,
+                function () use ($kit_url) {
+                    wp_enqueue_script('font-awesome-kit', $kit_url, [], null);
+                }
+            );
         }
-      );
     }
-  }
 }
 
 // to manage "image mis en avant"
@@ -301,7 +307,7 @@ function my_theme_display_comments($comments, $depth = 1, $max_depth = 3)
                 </ul>
             <?php } ?>
         </li>
-        <?php 
+    <?php
     }
 }
 
@@ -323,7 +329,7 @@ add_action('wp_enqueue_scripts', 'enqueue_comment_reply_script');
 // });
 
 
-if( function_exists('acf_add_options_page') ) {
+if (function_exists('acf_add_options_page')) {
     acf_add_options_page([
         'page_title' => 'Paramètres du site',
         'menu_title' => 'Paramètres',
@@ -336,7 +342,7 @@ if( function_exists('acf_add_options_page') ) {
 
 
 
-add_action('wp_ajax_ong_search_posts', function() {
+add_action('wp_ajax_ong_search_posts', function () {
     global $wpdb;
     $term = sanitize_text_field($_GET['q'] ?? '');
     $results = [];
@@ -360,7 +366,8 @@ add_action('wp_ajax_ong_search_posts', function() {
 
 
 // Add metabox "Galerie"
-function fbn_add_gallery_metabox() {
+function fbn_add_gallery_metabox()
+{
     add_meta_box(
         'fbn_gallery_box',
         'Galerie d’images',
@@ -372,7 +379,8 @@ function fbn_add_gallery_metabox() {
 }
 add_action('add_meta_boxes', 'fbn_add_gallery_metabox');
 
-function fnb_gallery_metabox_html($post) {
+function fnb_gallery_metabox_html($post)
+{
     $gallery_ids = get_post_meta($post->ID, '_fbn_gallery_ids', true);
     $gallery_ids = $gallery_ids ? explode(',', $gallery_ids) : [];
     ?>
@@ -388,28 +396,52 @@ function fnb_gallery_metabox_html($post) {
         <button type="button" class="button" id="fbn-add-gallery">Ajouter des images</button>
     </div>
     <style>
-        #fbn-gallery-container ul { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+        #fbn-gallery-container ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
     </style>
-    <?php
+<?php
 }
 
-function fbn_save_gallery_metabox($post_id) {
+function fbn_save_gallery_metabox($post_id)
+{
     if (isset($_POST['fbn_gallery_ids'])) {
         update_post_meta($post_id, '_fbn_gallery_ids', sanitize_text_field($_POST['fbn_gallery_ids']));
     }
 }
 add_action('save_post', 'fbn_save_gallery_metabox');
 
+// Save patner
+add_action('wp_ajax_save_partner', function () {
+    $partners = get_option('fbn_ong_partners', '[]');
 
-function fbn_gallery_admin_js($hook) {
-    global $post;
-    if (in_array($hook, ['post.php', 'post-new.php'])) {
-        wp_enqueue_media();
-        ?>
-        <script>
-        
-        </script>
-        <?php
-    }
-}
-add_action('admin_footer', 'fbn_gallery_admin_js');
+    $new_partner = [
+        'id' => time(),
+        'name' => sanitize_text_field($_POST['name']),
+        'logo_id' => intval($_POST['logo_id']),
+        'logo_url' => esc_url_raw($_POST['logo_url']),
+    ];
+
+    $partners[] = $new_partner;
+    update_option('fbn_ong_partners', $partners);
+
+    wp_send_json_success(["success" => true, "saved" => $new_partner]);
+});
+
+// delete partner
+add_action('wp_ajax_delete_partner', function () {
+    $id = sanitize_text_field($_POST['partner_id']);
+    $old_partners = get_option('fbn_ong_partners', []);
+    $partners = array_filter($old_partners, fn($p) => $p['id'] != $id);
+    update_option('fbn_ong_partners', array_values($partners));
+    wp_send_json_success(["success" => true, 'message' => 'Partenaire supprimé']);
+});
+
+// get partners list
+add_action('wp_ajax_get_partners_list', function () {
+    $partners = get_option('fbn_ong_partners', []);
+    wp_send_json_success(["success" => true, "partners" => $partners]);
+});
