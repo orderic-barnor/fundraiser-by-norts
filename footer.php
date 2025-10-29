@@ -56,19 +56,22 @@
                     </form>
                 </div> -->
 
-                <?php if (get_option("ong_facebook_lnk") || get_option("ong_tiktok_lnk") || get_field("share_instagram") || get_field("share_linkedin")) : ?>
+                <?php if (get_option("ong_facebook_lnk") || get_option("ong_twitter_lnk") || get_option("ong_tiktok_lnk") || get_option("ong_instagram_lnk") || get_option("ong_linkedin_lnk")) : ?>
                     <h2 class="footer-heading mb-2">Suivez nous</h2>
                     <?php if (get_option("ong_facebook_lnk")) : ?>
-                        <a href="#about-section" class="smoothscroll pl-0 pr-3"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="<?php echo get_option("ong_facebook_lnk") ?? "#"; ?>" class="smoothscroll pl-0 pr-3"><i class="fa-brands fa-facebook"></i></a>
                     <?php endif; ?>
                     <?php if (get_option("ong_tiktok_lnk")) : ?>
-                        <a href="#" class="pl-3 pr-3"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="<?php echo get_option("ong_tiktok_lnk") ?? "#"; ?>" class="pl-3 pr-3"><i class="fa-brands fa-tiktok"></i></a>
+                    <?php endif; ?>
+                    <?php if (get_option("ong_twitter_lnk")) : ?>
+                        <a href="<?php echo get_option("ong_twitter_lnk") ?? "#"; ?>" class="pl-3 pr-3"><i class="fa-brands fa-twitter"></i></a>
                     <?php endif; ?>
                     <?php if (get_option("ong_instagram_lnk")) : ?>
-                        <a href="#about-section" class="smoothscroll pl-0 pr-3"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="<?php echo get_option("ong_instagram_lnk") ?? "#"; ?>about-section" class="smoothscroll pl-0 pr-3"><i class="fa-brands fa-instagram"></i></a>
                     <?php endif; ?>
                     <?php if (get_option("ong_linkedin_lnk")) : ?>
-                        <a href="#" class="pl-3 pr-3"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="<?php echo get_option("ong_linkedin_lnk") ?? "#"; ?>" class="pl-3 pr-3"><i class="fa-brands fa-linkedin"></i></a>
                     <?php endif; ?>
                 <?php endif; ?>
             </div>

@@ -48,6 +48,21 @@
                                 <i class="fa-brands fa-tiktok"></i>
                             </a>
                         <?php endif; ?>
+                        <?php if (get_option("ong_twitter_lnk")) : ?>
+                            <a target="_blank" href="<?php echo get_option("ong_twitter_lnk"); ?>" class="px-3">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                        <?php endif; ?>
+                        <?php if (get_option("ong_instagram_lnk")) : ?>
+                            <a target="_blank" href="<?php echo get_option("ong_instagram_lnk"); ?>" class="px-3">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        <?php endif; ?>
+                        <?php if (get_option("ong_linkedin_lnk")) : ?>
+                            <a target="_blank" href="<?php echo get_option("ong_linkedin_lnk"); ?>" class="px-3">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

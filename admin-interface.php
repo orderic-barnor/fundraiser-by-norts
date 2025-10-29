@@ -124,13 +124,43 @@ function render_page_builder()
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-lg-6 py-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa-brands fa-twitter"></i></div>
+                                </div>
+                                <input type="text" id="twitter_lnk" value="<?php echo get_option("ong_twitter_lnk"); ?>" class="form-control" id="inlineFormInputGroupUsername" placeholder="Lien Twitter">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 py-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa-brands fa-instagram"></i></div>
+                                </div>
+                                <input type="text" id="instagram_lnk" value="<?php echo get_option("ong_instagram_lnk"); ?>" class="form-control" id="inlineFormInputGroupUsername" placeholder="Lien Instagram">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 py-1">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa-brands fa-linkedin"></i></div>
+                                </div>
+                                <input type="text" id="linkedin_lnk" value="<?php echo get_option("ong_linkedin_lnk"); ?>" class="form-control" id="inlineFormInputGroupUsername" placeholder="Lien Linkedin">
+                            </div>
+                        </div>
+                    </div>
                 </form>
 
                 <button id="save_params" class="button button-primary">Enregistrer</button>
 
             </div>
             <div class="tab-pane fade" id="v-pills-homepage" role="tabpanel" aria-labelledby="v-pills-homepage-tab">
-                <h1 class   ="mb-4">Page d'accueil</h1>
+                <h1 class="mb-4">Page d'accueil</h1>
                 <div id="home_page_form" class="mb-4">
                     <div>
                         <h3 class="mt-3 mb-2">Nos partenaires</h3>
@@ -172,7 +202,7 @@ function render_page_builder()
                         <div id="partners-list-mobile" class="d-md-none">
                             <h3 class="mt-3 mb-2">Liste des partenaires</h3>
                             <div id="partners-list-mobile-container" class="row">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -233,6 +263,9 @@ add_action('wp_ajax_save_general_params', function () {
         'ong_facebook_lnk' => 'ong_facebook_lnk',
         'ong_tiktok_lnk'   => 'ong_tiktok_lnk',
         'ong_about_title' => 'ong_about_title',
+        "ong_twitter_lnk" => "ong_twitter_lnk",
+        "ong_instagram_lnk" => "ong_instagram_lnk",
+        "ong_linkedin_lnk" => "ong_linkedin_lnk",
         'ong_about_description' => 'ong_about_description',
         "footer_cta_btn_label" => "footer_cta_btn_label",
         "footer_cta_btn_link" => "footer_cta_btn_link",

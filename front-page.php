@@ -295,7 +295,7 @@ if (!empty($partners)) {
             });
         });
     </script>
-    <div class="container partners">
+    <div class="container partners mb-5">
         <div class="heading-20219 front-heading mb-5 pl-3">
             <h2 class="title text-cursive"><?php echo "Nos partenaires"; ?></h2>
         </div>
