@@ -2450,6 +2450,11 @@ h5,
   color: #fff;
 }
 
+
+.feature-29192 {
+  flex: 1 1 33%;
+}
+
 .feature-29192-wrap {
   position: relative;
 }
@@ -2462,9 +2467,17 @@ h5,
 }
 
 @media (max-width: 991.98px) {
+  .feature-29192 {
+    flex: 1 1 100%;
+  }
+.feature-29192-wrap{
+  height: 21rem;
+}
+
   .feature-29192-wrap .feature-29192 {
     width: 100%;
-    position: relative;
+  height: 7rem;
+
     float: left;
   }
 }
@@ -2491,11 +2504,11 @@ h5,
 }
 
 .feature-29192-wrap .feature-29192.overlay-success:before {
-  background-color: #ffc107;
+  background-color: #00a651;
 }
 
 .feature-29192-wrap .feature-29192.overlay-warning:before {
-  background-color: #00a651;
+  background-color: #ffc107;
 }
 
 .feature-29192-wrap .text {

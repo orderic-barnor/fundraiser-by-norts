@@ -217,12 +217,18 @@ jQuery(document).ready(function ($) {
     });
   });
 
-  // reset form
-  $("#partner-form-reset").on("click", function (e) {
-    $("#partner-form .file-preview").css("background-image", "none");
+  function reset () {
+$("#partner-form .file-preview").css("background-image", "none");
     $("#partner-form .file-preview").addClass("d-none");
     $("#partner_logo").data("id", "");
     $("#partner_logo").data("src_url", "");
+    $("#partner_name").val("");
+  }
+
+  // reset form
+  $("#partner-form-reset").on("click", function (e) {
+    reset()
+    
   });
 
   let editingIndex = null;
@@ -311,6 +317,7 @@ jQuery(document).ready(function ($) {
         if (response.success) {
           console.log("Partenaires mis à jour :", response.data.saved);
           updateList(response.data.saved);
+          reset();
           // alert("Partenaire enregistré !");
         }
       }

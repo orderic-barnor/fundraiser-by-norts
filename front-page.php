@@ -33,14 +33,15 @@ $button_link = get_field('slide_1_button_link');
     </div>
 </div>
 
-<!-- Section secteurs d'interventions -->
-<div class="container">
-    <div class="feature-29192-wrap d-md-flex" style="margin-top: -20px; position: relative; z-index: 2; height: 20rem;">
+<!-- Section secteurs d'interventions writing-mode: vertical-rl;
+    text-orientation: upright; -->
+<div class="container sectors"> 
+    <div class="feature-29192-wrap d-block d-lg-flex" style="margin-top: -20px; z-index: 2;">
         <?php
         $class = [
-            1 => 'overlay-danger',
-            2 => 'overlay-success',
-            3 => 'overlay-warning'
+            1 => 'overlay-success',
+            2 => 'overlay-warning',
+            3 => 'overlay-danger',
         ];
         ?>
 
@@ -51,18 +52,18 @@ $button_link = get_field('slide_1_button_link');
             $image_url = get_field("sector_image_" . $i);
 
 
-            $css_style = "background-color: re  d;";
+            $css_style = "";
             if ($image_url) {
-                $css_style = "background-image: url('" . esc_url($image_url) . "');";
+                $css_style .= "background-image: url('" . esc_url($image_url) . "');";
             }
             ?>
 
-            <a href="#" class="feature-29192 <?php echo $class[$i]; ?>" style="<?php echo $css_style; ?>">
+            <div class="feature-29192 <?php echo $class[$i]; ?>" style="<?php echo $css_style; ?>">
                 <div class="text">
                     <span class="meta"><?php echo $title; ?></span>
                     <h3 class=" text-white h1"><?php echo $subtitle; ?></h3>
                 </div>
-            </a>
+            </div>
         <?php endfor; ?>
     </div>
 </div>

@@ -6,8 +6,8 @@
                     <h2 class="text-cursive text-white"><?php echo get_option("footer_cta_btn_description") ?></h2>
                 </div>
                 <?php
-                    $btn_link_id = get_option("footer_cta_btn_link");
-                    $post_link = get_permalink($btn_link_id) ?? "#";
+                $btn_link_id = get_option("footer_cta_btn_link");
+                $post_link = get_permalink($btn_link_id) ?? "#";
                 ?>
                 <div class="ml-auto"><a href="<?php echo $post_link; ?>" class="btn bg-white text-primary"><?php echo get_option("footer_cta_btn_label"); ?></a></div>
             </div>
@@ -45,7 +45,8 @@
 
                 <!-- <div class="mb-5">
                     <h2 class="footer-heading mb-4">Suivez nos activités</h2>
-                    <?php // echo do_shortcode('[newsletter_form form="1"]'); ?>
+                    <?php // echo do_shortcode('[newsletter_form form="1"]'); 
+                    ?>
                     <form action="#" method="post" class="footer-suscribe-form">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control rounded-0 border-secondary text-white bg-transparent" placeholder="Votre Email" aria-label="Votre Email" aria-describedby="button-addon2">
@@ -62,16 +63,16 @@
                         <a href="<?php echo get_option("ong_facebook_lnk") ?? "#"; ?>" class="smoothscroll pl-0 pr-3"><i class="fa-brands fa-facebook"></i></a>
                     <?php endif; ?>
                     <?php if (get_option("ong_tiktok_lnk")) : ?>
-                        <a href="<?php echo get_option("ong_tiktok_lnk") ?? "#"; ?>" class="pl-3 pr-3"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="<?php echo get_option("ong_tiktok_lnk") ?? "#"; ?>" class="px-3"><i class="fa-brands fa-tiktok"></i></a>
                     <?php endif; ?>
                     <?php if (get_option("ong_twitter_lnk")) : ?>
-                        <a href="<?php echo get_option("ong_twitter_lnk") ?? "#"; ?>" class="pl-3 pr-3"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="<?php echo get_option("ong_twitter_lnk") ?? "#"; ?>" class="px-3"><i class="fa-brands fa-twitter"></i></a>
                     <?php endif; ?>
                     <?php if (get_option("ong_instagram_lnk")) : ?>
-                        <a href="<?php echo get_option("ong_instagram_lnk") ?? "#"; ?>about-section" class="smoothscroll pl-0 pr-3"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="<?php echo get_option("ong_instagram_lnk") ?? "#"; ?>about-section" class=" px-3"><i class="fa-brands fa-instagram"></i></a>
                     <?php endif; ?>
                     <?php if (get_option("ong_linkedin_lnk")) : ?>
-                        <a href="<?php echo get_option("ong_linkedin_lnk") ?? "#"; ?>" class="pl-3 pr-3"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="<?php echo get_option("ong_linkedin_lnk") ?? "#"; ?>" class="px-3"><i class="fa-brands fa-linkedin"></i></a>
                     <?php endif; ?>
                 <?php endif; ?>
             </div>
