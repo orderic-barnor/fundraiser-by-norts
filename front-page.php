@@ -302,16 +302,15 @@ if (!empty($partners)) {
         </div>
 
         <?php if (count($partners)>=5) : ?>
-
-        <div class="">
-            <?php foreach ($partners as $key => $partner) {
-            ?>
-                <div class="partner">
-                    <img src="<?php echo $partner['logo_url']; ?>" alt="">
-                </div>
-            <?php
-            } ?>
-        </div>
+            <div class="">
+                <?php foreach ($partners as $key => $partner) {
+                ?>
+                    <div class="partner">
+                        <img src="<?php echo $partner['logo_url']; ?>" alt="">
+                    </div>
+                <?php
+                } ?>
+            </div>
         <?php else : ?>
             <div class="row">
                 <?php foreach ($partners as $key => $partner) {

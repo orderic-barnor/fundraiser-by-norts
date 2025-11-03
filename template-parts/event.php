@@ -19,7 +19,14 @@ $tags = get_the_terms(get_the_ID(), 'post_tag');
                 <img src="<?php echo get_template_directory_uri(); ?>/images/our-events.jpg" alt="Image" class="custom-img default-thumbnail">
             <?php endif; ?>
         </a>
-        <div class="px-3 d-flex align-items-start">
+
+        <div class="bg-primary p-4 p-md-5 text-white text-center mx-auto position-relative" style="width: 91%; margin-top: -5rem;">
+            <p class="my-0"><?php echo strtoupper(get_the_date("l") . ' ' . get_the_date("d M Y")); ?></p>
+            <p class="my-0">À PARTIR DE <?php echo date('H', strtotime(get_field('event_start_time', $post_id))) . "H"; ?></p>
+            <h3 class="mt-3"><a class="text-white" href="<?php the_permalink(); ?>"><?php the_title(); ?>rrr</a></h3>
+        </div>
+
+        <div class="px-3 d-none align-items-start">
 
             <div class="bg-primary p-3 d-inline-block text-center rounded mr-4 date">
                 <span class="text-white h3 m-0 d-block"><?php echo get_the_date('d'); ?></span>

@@ -2712,7 +2712,8 @@ h5,
 
 .event-img .custom-img {
   max-width: 100%;
-  height: 25rem;
+  height: 22rem;
+  object-fit: cover;
 }
 
 .topic .custom-img {
