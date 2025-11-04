@@ -195,10 +195,11 @@ jQuery(document).ready(function ($) {
   $("#partner_logo").on("click", function (e) {
     e.preventDefault();
 
-    if (frame) {
-      frame.open();
-      return;
-    }
+    // console.log(frame);
+    // if (frame) {
+    //   frame.open();
+    //   return;
+    // }
 
     frame = window.wp.media({
       title: "Sélectionner le logo du partenaire",
@@ -227,6 +228,9 @@ jQuery(document).ready(function ($) {
         attachments.find((a) => a.id === id).sizes.full.url
       );
     });
+
+    frame.open();
+
   });
 
   function reset () {

@@ -166,15 +166,15 @@ function render_page_builder()
                         <h3 class="mt-3 mb-2">Nos partenaires</h3>
                         <!-- Formulaire d'ajout / modification -->
                         <div id="partner-form" class="row mx-0 p-3 align-content-center border">
-                            <div class="col-12 col-md-3 mb-2 mb-md-0 d-flex">
+                            <div class="col-12 col-md-6 col-xl-3 mb-2 mb-md-0 d-flex">
                                 <div class="file-preview d-none"></div>
-                                <input type="file" class="admin-custom-file-input" id="partner_logo" name="partner_logo" accept="image/*" placeholder="Choisir Logo">
+                                <input type="file" class="admin-custom-file-input" id="partner_logo" name="partner_logo" accept="image/*" placeholder="Logo">
                             </div>
                             <div class="col-12 col-md-6 mb-2 mb-md-0">
                                 <input name="partner_name" id="partner_name" type="text" class="form-control" placeholder="Nom du partenaire">
                             </div>
 
-                            <div class="col-12 col-md-3 mb-2 mb-md-0 d-flex flex-column flex-md-row justify-content-center align-items-center">
+                            <div class="col-12 col-xl-3 pt-3 pt-xl-0 mb-2 mb-md-0 d-flex flex-column flex-md-row justify-content-center align-items-center">
                                 <div class="col px-1">
                                     <button class="w-100 mb-1 mb-md-0" type="button" id="partner-form-add">Enregistrer</button>
                                 </div>
@@ -220,14 +220,7 @@ function render_page_builder()
                                 </div>
                             </div>
                         </div>
-                    </div>
- -->
-
-
-
-
-
-
+                    </div> -->
 
                     <!-- <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -239,13 +232,10 @@ function render_page_builder()
                     </div> -->
                 </div>
 
-
-                </form>
-
                 <!-- <button id="save_frontpage_params" class="button button-primary">Enregistrer</button> -->
             </div>
-            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+            <!-- <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div> -->
         </div>
 
     </div>
