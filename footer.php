@@ -1,15 +1,15 @@
 <?php if (get_option("footer_cta_btn_description") && get_option("footer_cta_btn_label")) : ?>
-    <div class="site-section bg-primary mt-5">
-        <div class="container" style="background-color: #026002;">
-            <div class="d-md-flex cta-20101 align-self-center p-4">
-                <div class="">
+    <div class="site-section bg-primary mt-5 p-0 py-md-5">
+        <div class="container px-0 px-lg-5" style="background-color: #026002;">
+            <div class="d-md-flex align-items-center cta-20101 align-self-center py-4 py-md-4">
+                <div class="col-12 col-md-9 col-lg-10">
                     <h2 class="text-cursive text-white"><?php echo get_option("footer_cta_btn_description") ?></h2>
                 </div>
                 <?php
                 $btn_link_id = get_option("footer_cta_btn_link");
                 $post_link = get_permalink($btn_link_id) ?? "#";
                 ?>
-                <div class="ml-auto"><a href="<?php echo $post_link; ?>" class="btn bg-white text-primary"><?php echo get_option("footer_cta_btn_label"); ?></a></div>
+                <div class="col ml-auto"><a href="<?php echo $post_link; ?>" class="btn bg-white text-primary"><?php echo get_option("footer_cta_btn_label"); ?></a></div>
             </div>
         </div>
     </div>
