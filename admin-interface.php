@@ -16,7 +16,7 @@ function render_page_builder()
     $pages = get_pages(); // toutes les pages
 ?>
 
-    <div class="d-flex flex-column flex-md-row px-3 py-5">
+    <div  id="dashboard-theme" class="d-flex flex-column flex-md-row px-3 py-5">
 
         <!-- Sidebar (collapsible on mobile) -->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark sidebar p-3">

@@ -115,6 +115,18 @@ jQuery(document).ready(function ($) {
 });
 
 jQuery(document).ready(function ($) {
+  $('#dashboard-theme a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
+    localStorage.setItem('activeTab', $(e.target).attr('href'));
+  });
+
+  // Au chargement de la page
+  var activeTab = localStorage.getItem('activeTab');
+  if (activeTab) {
+    $('#dashboard-theme a[href="' + activeTab + '"]').tab('show');
+  }
+});
+
+jQuery(document).ready(function ($) {
   var frame;
   $("#fbn-add-gallery").on("click", function (e) {
     e.preventDefault();

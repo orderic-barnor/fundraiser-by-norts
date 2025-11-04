@@ -315,7 +315,7 @@ if (!empty($partners)) {
             <div class="row">
                 <?php foreach ($partners as $key => $partner) {
                 ?>
-                    <div class="col-2 align-content-center">
+                    <div class="col-3 align-content-center">
                         <img class="img-fluid " src="<?php echo $partner['logo_url']; ?>" alt="">
                     </div>
                 <?php
